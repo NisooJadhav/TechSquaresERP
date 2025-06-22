@@ -22,19 +22,19 @@ const Navbar = () => {
   }, []);
 
   const serviceLinks = [
-    { name: "Odoo Migration", path: "/services/#migration" },
-    { name: "Odoo Customization", path: "/services/#customization" },
-    { name: "Odoo Integration", path: "/services/#integration" },
-    { name: "Odoo Web/App Development", path: "/services/#development" },
-    { name: "Odoo Training", path: "/services/#training" },
-    { name: "Support & Maintenance", path: "/services/#support" },
+    { name: "Odoo Migration", path: "/services/migration" },
+    { name: "Odoo Customization", path: "/services/customization" },
+    { name: "Odoo Integration", path: "/services/integration" },
+    { name: "Odoo Web/App Development", path: "/services/development" },
+    { name: "Odoo Training", path: "/services/training" },
+    { name: "Support & Maintenance", path: "/services/support" },
   ];
 
   const otherServices = [
-    { name: "Digital Marketing", path: "/services/#digital-marketing" },
-    { name: "Graphic Desiging", path: "/services/#graphic-designing" },
-    { name: "Web/App Development", path: "/services/#web-app-development" },
-    { name: "Automation Testing", path: "/services/#automation-testing" },
+    { name: "Digital Marketing", path: "/services/digital-marketing" },
+    { name: "Graphic Desiging", path: "/services/graphic-designing" },
+    { name: "Web/App Development", path: "/services/development" },
+    { name: "Automation Testing", path: "/services/automation-testing" },
   ];
 
   const navLinks = [

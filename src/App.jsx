@@ -47,8 +47,7 @@ function App() {
               path="/odoo-implementation"
               element={<OdooImplementation />}
             />
-            <Route path="/services" element={<Services />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/services/:type" element={<Services />} />
           </Routes>
         </main>
         <Footer />

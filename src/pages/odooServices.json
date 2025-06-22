@@ -1,0 +1,660 @@
+{
+  "services": {
+    "migration": {
+      "id": "migration",
+      "title": "Odoo Migration Services",
+      "subtitle": "Seamless Migration to Latest Odoo Version",
+      "heroImage": "/migration-banner.svg",
+      "overview": {
+        "title": "Professional Odoo Migration Services",
+        "description": "Achieve a smooth migration to the latest Odoo version with our specialized Odoo migration services! Whether you currently use an older Odoo version or any other ERP system, our dedicated Odoo specialists ensure a hassle-free migration to the newest Odoo version.",
+        "fullDescription": "Within our migration services, we assist you in migrating your data, configurations, and modules, conduct rigorous post-migration testing to detect and address possible discrepancies, and offer ongoing support for the continued operation of your Odoo ERP post-migration."
+      },
+      "keyFeatures": [
+        {
+          "title": "Data Migration & Validation",
+          "description": "Comprehensive data migration with zero data loss guarantee and thorough validation processes.",
+          "icon": "🔄"
+        },
+        {
+          "title": "Version Upgrade Planning",
+          "description": "Strategic planning for smooth transition from older Odoo versions to the latest release.",
+          "icon": "📋"
+        },
+        {
+          "title": "Custom Module Migration",
+          "description": "Migration of custom modules and third-party extensions with compatibility testing.",
+          "icon": "⚙️"
+        },
+        {
+          "title": "Configuration Transfer",
+          "description": "Seamless transfer of all configurations, workflows, and business rules.",
+          "icon": "🔧"
+        },
+        {
+          "title": "Comprehensive Testing",
+          "description": "Rigorous testing procedures to ensure everything works perfectly post-migration.",
+          "icon": "🧪"
+        },
+        {
+          "title": "Post-Migration Support",
+          "description": "Ongoing support and optimization services after successful migration.",
+          "icon": "🛠️"
+        }
+      ],
+      "benefits": [
+        "Zero data loss guarantee",
+        "Minimal business disruption",
+        "Enhanced system performance",
+        "Access to latest Odoo features",
+        "Improved security and stability",
+        "Better user experience",
+        "Reduced maintenance costs",
+        "Future-proof solution"
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Assessment & Planning",
+          "description": "Comprehensive analysis of your current system and migration requirements"
+        },
+        {
+          "step": 2,
+          "title": "Migration Strategy",
+          "description": "Development of detailed migration plan with timelines and milestones"
+        },
+        {
+          "step": 3,
+          "title": "Data Preparation",
+          "description": "Data cleanup, validation and preparation for migration"
+        },
+        {
+          "step": 4,
+          "title": "Migration Execution",
+          "description": "Systematic migration of data, configurations, and customizations"
+        },
+        {
+          "step": 5,
+          "title": "Testing & Validation",
+          "description": "Comprehensive testing to ensure data integrity and functionality"
+        },
+        {
+          "step": 6,
+          "title": "Go-Live & Support",
+          "description": "System deployment and ongoing post-migration support"
+        }
+      ],
+      "technologies": ["Odoo 17", "PostgreSQL", "Python", "XML", "JavaScript"],
+      "industries": [
+        "Manufacturing",
+        "Retail",
+        "Healthcare",
+        "Finance",
+        "Education"
+      ],
+      "faqs": [
+        {
+          "question": "How long does Odoo migration typically take?",
+          "answer": "Migration timeline depends on data complexity and customizations, typically ranging from 2-8 weeks."
+        },
+        {
+          "question": "Will there be any data loss during migration?",
+          "answer": "We guarantee zero data loss with our comprehensive backup and validation processes."
+        },
+        {
+          "question": "Can you migrate custom modules?",
+          "answer": "Yes, we specialize in migrating custom modules and ensuring compatibility with new versions."
+        }
+      ]
+    },
+    "customization": {
+      "id": "customization",
+      "title": "Odoo Customization Services",
+      "subtitle": "Tailored Solutions for Your Business Needs",
+      "heroImage": "/api/placeholder/1200/600",
+      "overview": {
+        "title": "Custom Odoo Development Services",
+        "description": "Boost efficiency and drive business growth with custom Odoo solutions! We understand that there is no one-size-fits-all approach, and off-the-shelf solutions do not always meet your requirements.",
+        "fullDescription": "With our Odoo customization services, we offer highly customized Odoo solutions tailored to your workflows and objectives. Whether you want to build custom modules from scratch or append extra features to existing Odoo modules, our Odoo specialists do it all with precision."
+      },
+      "keyFeatures": [
+        {
+          "title": "Custom Module Development",
+          "description": "Build custom modules from scratch to meet your specific business requirements.",
+          "icon": "🔧"
+        },
+        {
+          "title": "Workflow Optimization",
+          "description": "Optimize business workflows and processes for maximum efficiency.",
+          "icon": "⚡"
+        },
+        {
+          "title": "UI/UX Customization",
+          "description": "Custom user interface design for better user experience and productivity.",
+          "icon": "🎨"
+        },
+        {
+          "title": "Business Rule Configuration",
+          "description": "Configure complex business rules and automation workflows.",
+          "icon": "📊"
+        },
+        {
+          "title": "Report Customization",
+          "description": "Create custom reports and dashboards for better business insights.",
+          "icon": "📈"
+        },
+        {
+          "title": "API Development",
+          "description": "Develop custom APIs for seamless integration with external systems.",
+          "icon": "🔗"
+        }
+      ],
+      "benefits": [
+        "Perfect fit for your business processes",
+        "Increased operational efficiency",
+        "Competitive advantage",
+        "Scalable solutions",
+        "Better user adoption",
+        "Reduced manual work",
+        "Enhanced productivity",
+        "Future-proof architecture"
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Requirement Analysis",
+          "description": "Detailed analysis of your business requirements and current processes"
+        },
+        {
+          "step": 2,
+          "title": "Solution Design",
+          "description": "Design custom solution architecture and technical specifications"
+        },
+        {
+          "step": 3,
+          "title": "Development",
+          "description": "Custom module development and configuration"
+        },
+        {
+          "step": 4,
+          "title": "Testing",
+          "description": "Comprehensive testing and quality assurance"
+        },
+        {
+          "step": 5,
+          "title": "Deployment",
+          "description": "Deployment and integration with existing system"
+        },
+        {
+          "step": 6,
+          "title": "Training & Support",
+          "description": "User training and ongoing support services"
+        }
+      ],
+      "technologies": ["Python", "JavaScript", "XML", "PostgreSQL", "HTML/CSS"],
+      "industries": [
+        "Manufacturing",
+        "Healthcare",
+        "Retail",
+        "Finance",
+        "Logistics"
+      ],
+      "faqs": [
+        {
+          "question": "Can you customize existing Odoo modules?",
+          "answer": "Yes, we can customize existing modules and add new features without affecting core functionality."
+        },
+        {
+          "question": "Will customizations affect future upgrades?",
+          "answer": "We follow best practices to ensure customizations are upgrade-safe and maintainable."
+        },
+        {
+          "question": "How long does customization take?",
+          "answer": "Timeline varies based on complexity, typically ranging from 1-12 weeks for most projects."
+        }
+      ]
+    },
+    "integration": {
+      "id": "integration",
+      "title": "Odoo Integration Services",
+      "subtitle": "Connect Your Business Ecosystem",
+      "heroImage": "/odoo-integration-banner.svg",
+      "overview": {
+        "title": "Seamless Odoo Integration Solutions",
+        "description": "Effortlessly connect Odoo with all your business systems and achieve a smooth data flow within your ecosystem! Whether it's an e-commerce website, database, CRM, accounting software, or other business applications, our Odoo experts develop tailored integration solutions.",
+        "fullDescription": "Our expertise extends to connecting Odoo with social media platforms, payment gateways, shipping and logistics services, and hardware such as biometric systems, point-of-sale, and IoT devices. We guarantee you a fully integrated business management solution with our integration services."
+      },
+      "keyFeatures": [
+        {
+          "title": "Third-Party System Integration",
+          "description": "Seamless integration with CRM, accounting, and other business applications.",
+          "icon": "🔗"
+        },
+        {
+          "title": "E-commerce Integration",
+          "description": "Connect with popular e-commerce platforms like Shopify, WooCommerce, Magento.",
+          "icon": "🛒"
+        },
+        {
+          "title": "Payment Gateway Integration",
+          "description": "Integration with multiple payment gateways for seamless transactions.",
+          "icon": "💳"
+        },
+        {
+          "title": "API Development",
+          "description": "Custom API development for real-time data synchronization.",
+          "icon": "⚙️"
+        },
+        {
+          "title": "IoT Device Integration",
+          "description": "Connect IoT devices, POS systems, and hardware for automated workflows.",
+          "icon": "📱"
+        },
+        {
+          "title": "Social Media Integration",
+          "description": "Integrate with social media platforms for marketing automation.",
+          "icon": "📱"
+        }
+      ],
+      "benefits": [
+        "Unified business ecosystem",
+        "Automated data synchronization",
+        "Reduced manual errors",
+        "Enhanced operational efficiency",
+        "Real-time data access",
+        "Improved decision making",
+        "Streamlined workflows",
+        "Better customer experience"
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "System Analysis",
+          "description": "Analysis of existing systems and integration requirements"
+        },
+        {
+          "step": 2,
+          "title": "Integration Planning",
+          "description": "Development of integration strategy and architecture"
+        },
+        {
+          "step": 3,
+          "title": "API Development",
+          "description": "Custom API development and configuration"
+        },
+        {
+          "step": 4,
+          "title": "Data Mapping",
+          "description": "Data field mapping and transformation rules"
+        },
+        {
+          "step": 5,
+          "title": "Testing & Validation",
+          "description": "Comprehensive testing of integration workflows"
+        },
+        {
+          "step": 6,
+          "title": "Monitoring & Support",
+          "description": "Ongoing monitoring and support services"
+        }
+      ],
+      "technologies": [
+        "REST API",
+        "SOAP",
+        "JSON",
+        "XML",
+        "Python",
+        "JavaScript"
+      ],
+      "industries": [
+        "E-commerce",
+        "Manufacturing",
+        "Retail",
+        "Logistics",
+        "Healthcare"
+      ],
+      "faqs": [
+        {
+          "question": "Which systems can be integrated with Odoo?",
+          "answer": "We can integrate Odoo with almost any system that has an API including CRM, e-commerce, payment gateways, and more."
+        },
+        {
+          "question": "Is real-time integration possible?",
+          "answer": "Yes, we provide real-time integration solutions for immediate data synchronization."
+        },
+        {
+          "question": "Will integration affect system performance?",
+          "answer": "Our optimized integration solutions are designed to minimize performance impact."
+        }
+      ]
+    },
+    "development": {
+      "id": "development",
+      "title": "Odoo Web/App Development",
+      "subtitle": "Modern Web & Mobile Solutions",
+      "heroImage": "/api/placeholder/1200/600",
+      "overview": {
+        "title": "Cutting-Edge Odoo Development Services",
+        "description": "Get cutting-edge web or mobile solutions developed with our Odoo website/application development services! We specialize in crafting user-friendly websites and applications specific to your business requirements.",
+        "fullDescription": "Whether you need a simple website, complex e-commerce platform, web app, or native Android and iOS apps, our adept team has the expertise to develop and customize it flawlessly with seamless Odoo integration."
+      },
+      "keyFeatures": [
+        {
+          "title": "Responsive Web Development",
+          "description": "Modern, responsive websites optimized for all devices and browsers.",
+          "icon": "💻"
+        },
+        {
+          "title": "Mobile App Development",
+          "description": "Native iOS and Android apps with full Odoo integration.",
+          "icon": "📱"
+        },
+        {
+          "title": "E-commerce Solutions",
+          "description": "Complete e-commerce platforms with inventory and order management.",
+          "icon": "🛒"
+        },
+        {
+          "title": "Progressive Web Apps",
+          "description": "PWAs that work offline and provide native app-like experience.",
+          "icon": "⚡"
+        },
+        {
+          "title": "Custom Portal Development",
+          "description": "Customer and vendor portals for self-service capabilities.",
+          "icon": "🏪"
+        },
+        {
+          "title": "Performance Optimization",
+          "description": "Optimized applications for fast loading and smooth performance.",
+          "icon": "🚀"
+        }
+      ],
+      "benefits": [
+        "Enhanced user experience",
+        "Mobile-first approach",
+        "Scalable architecture",
+        "Cross-platform compatibility",
+        "SEO optimized",
+        "Fast loading times",
+        "Secure and reliable",
+        "Easy maintenance"
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Requirements Gathering",
+          "description": "Understanding your web/app requirements and target audience"
+        },
+        {
+          "step": 2,
+          "title": "Design & Prototyping",
+          "description": "UI/UX design and interactive prototypes"
+        },
+        {
+          "step": 3,
+          "title": "Development",
+          "description": "Frontend and backend development with Odoo integration"
+        },
+        {
+          "step": 4,
+          "title": "Testing & QA",
+          "description": "Comprehensive testing across devices and browsers"
+        },
+        {
+          "step": 5,
+          "title": "Deployment",
+          "description": "Production deployment and performance optimization"
+        },
+        {
+          "step": 6,
+          "title": "Maintenance",
+          "description": "Ongoing maintenance and feature enhancements"
+        }
+      ],
+      "technologies": [
+        "React",
+        "Vue.js",
+        "Flutter",
+        "React Native",
+        "Python",
+        "JavaScript"
+      ],
+      "industries": [
+        "E-commerce",
+        "Healthcare",
+        "Education",
+        "Finance",
+        "Retail"
+      ],
+      "faqs": [
+        {
+          "question": "Do you develop native mobile apps?",
+          "answer": "Yes, we develop both native and cross-platform mobile applications with full Odoo integration."
+        },
+        {
+          "question": "Can you integrate existing websites with Odoo?",
+          "answer": "Absolutely! We can integrate your existing website or develop new ones with seamless Odoo connectivity."
+        },
+        {
+          "question": "Do you provide ongoing maintenance?",
+          "answer": "Yes, we offer comprehensive maintenance and support services for all our web/app development projects."
+        }
+      ]
+    },
+    "training": {
+      "id": "training",
+      "title": "Odoo Training Services",
+      "subtitle": "Empower Your Team with Expert Training",
+      "heroImage": "/api/placeholder/1200/600",
+      "overview": {
+        "title": "Comprehensive Odoo Training Programs",
+        "description": "Empower your team with comprehensive Odoo training programs designed for different skill levels and roles. Our training programs help your team master Odoo functionalities and maximize the return on your ERP investment.",
+        "fullDescription": "We offer both functional and technical training sessions, customized to your specific business processes and requirements. From end-users to administrators and developers, we have training programs for everyone."
+      },
+      "keyFeatures": [
+        {
+          "title": "Functional User Training",
+          "description": "Training for end-users on daily operations and business processes.",
+          "icon": "👥"
+        },
+        {
+          "title": "Administrator Training",
+          "description": "Advanced training for system administrators and power users.",
+          "icon": "⚙️"
+        },
+        {
+          "title": "Developer Training",
+          "description": "Technical training for developers on Odoo customization and development.",
+          "icon": "💻"
+        },
+        {
+          "title": "Custom Workflow Training",
+          "description": "Training customized to your specific business workflows and processes.",
+          "icon": "🔄"
+        },
+        {
+          "title": "On-site & Remote Sessions",
+          "description": "Flexible training delivery options including on-site and remote sessions.",
+          "icon": "🏢"
+        },
+        {
+          "title": "Training Materials",
+          "description": "Comprehensive training materials and documentation for reference.",
+          "icon": "📚"
+        }
+      ],
+      "benefits": [
+        "Faster user adoption",
+        "Reduced dependency on external support",
+        "Improved system utilization",
+        "Enhanced productivity",
+        "Better ROI on Odoo investment",
+        "Confident system usage",
+        "Reduced errors and mistakes",
+        "Continuous learning culture"
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Training Assessment",
+          "description": "Assessment of training needs and skill levels"
+        },
+        {
+          "step": 2,
+          "title": "Curriculum Design",
+          "description": "Custom training curriculum based on your requirements"
+        },
+        {
+          "step": 3,
+          "title": "Material Preparation",
+          "description": "Preparation of training materials and resources"
+        },
+        {
+          "step": 4,
+          "title": "Training Delivery",
+          "description": "Interactive training sessions with hands-on practice"
+        },
+        {
+          "step": 5,
+          "title": "Assessment & Feedback",
+          "description": "Skills assessment and feedback collection"
+        },
+        {
+          "step": 6,
+          "title": "Ongoing Support",
+          "description": "Continuous support and refresher training sessions"
+        }
+      ],
+      "technologies": ["Odoo", "Python", "PostgreSQL", "JavaScript", "XML"],
+      "industries": [
+        "All Industries",
+        "Manufacturing",
+        "Retail",
+        "Healthcare",
+        "Finance"
+      ],
+      "faqs": [
+        {
+          "question": "Do you provide certification after training?",
+          "answer": "Yes, we provide training completion certificates and can help with official Odoo certifications."
+        },
+        {
+          "question": "Can training be customized for our specific processes?",
+          "answer": "Absolutely! All our training programs are customized to your specific business processes and workflows."
+        },
+        {
+          "question": "Do you offer refresher training sessions?",
+          "answer": "Yes, we provide ongoing support including refresher training sessions and updates on new features."
+        }
+      ]
+    },
+    "support": {
+      "id": "support",
+      "title": "Odoo Support & Maintenance",
+      "subtitle": "24/7 Expert Support Services",
+      "heroImage": "/odoo-support-banner.svg",
+      "overview": {
+        "title": "Comprehensive Odoo Support Services",
+        "description": "Keep your Odoo ERP system running smoothly with our comprehensive support and maintenance services! Our dedicated support team of experienced developers and technical experts is ready to provide technical and functional support round-the-clock.",
+        "fullDescription": "From setting up and configuring your Odoo ERP to troubleshooting any bugs or errors, our team offers server and security maintenance to enhance performance and stability while safeguarding against security breaches."
+      },
+      "keyFeatures": [
+        {
+          "title": "24/7 Technical Support",
+          "description": "Round-the-clock technical support from certified Odoo experts.",
+          "icon": "🕐"
+        },
+        {
+          "title": "Regular System Updates",
+          "description": "Regular updates and patches to keep your system current and secure.",
+          "icon": "🔄"
+        },
+        {
+          "title": "Security Monitoring",
+          "description": "Continuous security monitoring and threat protection services.",
+          "icon": "🛡️"
+        },
+        {
+          "title": "Performance Optimization",
+          "description": "Regular performance monitoring and optimization services.",
+          "icon": "⚡"
+        },
+        {
+          "title": "Bug Fixes & Patches",
+          "description": "Quick resolution of bugs and issues with priority support.",
+          "icon": "🔧"
+        },
+        {
+          "title": "Backup & Recovery",
+          "description": "Automated backup and disaster recovery services.",
+          "icon": "💾"
+        }
+      ],
+      "benefits": [
+        "Maximum system uptime",
+        "Enhanced security",
+        "Proactive maintenance",
+        "Peace of mind",
+        "Reduced downtime costs",
+        "Expert guidance",
+        "Priority support",
+        "Continuous improvement"
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Support Setup",
+          "description": "Initial setup of monitoring and support systems"
+        },
+        {
+          "step": 2,
+          "title": "Monitoring",
+          "description": "Continuous monitoring of system performance and health"
+        },
+        {
+          "step": 3,
+          "title": "Issue Detection",
+          "description": "Proactive detection and prevention of potential issues"
+        },
+        {
+          "step": 4,
+          "title": "Resolution",
+          "description": "Quick resolution of issues and implementation of fixes"
+        },
+        {
+          "step": 5,
+          "title": "Reporting",
+          "description": "Regular reporting on system health and maintenance activities"
+        },
+        {
+          "step": 6,
+          "title": "Optimization",
+          "description": "Continuous optimization and improvement recommendations"
+        }
+      ],
+      "technologies": ["Odoo", "PostgreSQL", "Linux", "Python", "Docker"],
+      "industries": [
+        "All Industries",
+        "Manufacturing",
+        "Healthcare",
+        "Finance",
+        "Retail"
+      ],
+      "faqs": [
+        {
+          "question": "What is included in your support packages?",
+          "answer": "Our support packages include 24/7 technical support, regular updates, security monitoring, and performance optimization."
+        },
+        {
+          "question": "How quickly do you respond to support requests?",
+          "answer": "We offer different SLA levels with response times ranging from 1 hour for critical issues to 24 hours for general queries."
+        },
+        {
+          "question": "Do you provide remote support?",
+          "answer": "Yes, most of our support services are provided remotely, with on-site support available when necessary."
+        }
+      ]
+    }
+  }
+}
