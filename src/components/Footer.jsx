@@ -20,23 +20,30 @@ const Footer = () => {
           <h4 className="text-lg font-semibold mb-3 text-white">Quick Links</h4>
           <ul className="space-y-2 text-sm">
             <li>
-              <NavLink to="/" className="hover:text-white transition">
+              <NavLink to="/" 
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="hover:text-white transition">
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink to="/about" className="hover:text-white transition">
+              <NavLink to="/about" 
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="hover:text-white transition">
                 About Us
               </NavLink>
             </li>
             <li>
-              <NavLink to="/services" className="hover:text-white transition">
+              <NavLink to="/services" 
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="hover:text-white transition">
                 Services
               </NavLink>
             </li>
             <li>
               <NavLink
                 to="/why-choose-us"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 className="hover:text-white transition"
               >
                 Why Choose Us
@@ -81,6 +88,7 @@ const Footer = () => {
           </p>
           <NavLink
             to="/contact"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="inline-block bg-sky-700 hover:bg-sky-800 text-white px-5 py-2 rounded transition"
           >
             Contact Us

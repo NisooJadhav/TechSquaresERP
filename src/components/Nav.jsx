@@ -31,7 +31,7 @@ const Navbar = () => {
   ];
 
   const otherServices = [
-    { name: "Digital Marketing", path: "/services/digital-marketing" },
+    // { name: "Digital Marketing", path: "/services/digital-marketing" },
     { name: "Graphic Desiging", path: "/services/graphic-designing" },
     { name: "Web/App Development", path: "/services/development" },
     { name: "Automation Testing", path: "/services/automation-testing" },
@@ -45,9 +45,8 @@ const Navbar = () => {
 
   return (
     <div
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "shadow-md bg-white" : "bg-white"
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? "shadow-md bg-white" : "bg-white"
+        }`}
     >
       <nav className={`transition-all duration-300 ${isScrolled ? "py-2" : "py-4"}`}>
         <div className="container mx-auto px-4 flex items-center justify-between">
@@ -67,9 +66,12 @@ const Navbar = () => {
               <NavLink
                 key={link.name}
                 to={link.path}
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top for all buttons
+                  setIsOpen(false); // Close the mobile menu if open
+                }}
                 className={({ isActive }) =>
-                  `text-black hover:text-sky-600 transition duration-300 ${
-                    isActive ? "font-semibold text-sky-600" : ""
+                  `text-black hover:text-sky-600 transition duration-300 ${isActive ? "font-semibold text-sky-600" : ""
                   }`
                 }
               >
@@ -84,17 +86,15 @@ const Navbar = () => {
               onMouseLeave={() => setIsOdooServicesOpen(false)}
             >
               <button
-                className={`flex items-center text-black hover:text-sky-600 transition duration-300 ${
-                  isOdooServicesOpen ? "font-semibold text-sky-600" : ""
-                }`}
+                className={`flex items-center text-black hover:text-sky-600 transition duration-300 ${isOdooServicesOpen ? "font-semibold text-sky-600" : ""
+                  }`}
               >
                 Odoo Services
                 <FaAngleDown className="ml-1" />
               </button>
               <div
-                className={`absolute left-0 mt-1 w-64 bg-white shadow-lg z-50 transition-all duration-200 ${
-                  isOdooServicesOpen ? "opacity-100 visible" : "opacity-0 invisible"
-                }`}
+                className={`absolute left-0 mt-1 w-64 bg-white shadow-lg z-50 transition-all duration-200 ${isOdooServicesOpen ? "opacity-100 visible" : "opacity-0 invisible"
+                  }`}
               >
                 {serviceLinks.map((link) => (
                   <NavLink
@@ -113,23 +113,21 @@ const Navbar = () => {
             </div>
 
             {/* Other Services Dropdown */}
-            <div
+            {/* <div
               className="relative"
               onMouseEnter={() => setIsOtherServicesOpen(true)}
               onMouseLeave={() => setIsOtherServicesOpen(false)}
             >
               <button
-                className={`flex items-center text-black hover:text-sky-600 transition duration-300 ${
-                  isOtherServicesOpen ? "font-semibold text-sky-600" : ""
-                }`}
+                className={`flex items-center text-black hover:text-sky-600 transition duration-300 ${isOtherServicesOpen ? "font-semibold text-sky-600" : ""
+                  }`}
               >
                 Other Services
                 <FaAngleDown className="ml-1" />
               </button>
               <div
-                className={`absolute left-0 mt-1 w-64 bg-white shadow-lg z-50 transition-all duration-200 ${
-                  isOtherServicesOpen ? "opacity-100 visible" : "opacity-0 invisible"
-                }`}
+                className={`absolute left-0 mt-1 w-64 bg-white shadow-lg z-50 transition-all duration-200 ${isOtherServicesOpen ? "opacity-100 visible" : "opacity-0 invisible"
+                  }`}
               >
                 {otherServices.map((link) => (
                   <NavLink
@@ -145,7 +143,7 @@ const Navbar = () => {
                   </NavLink>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             <NavLink
               to="/contact"
@@ -165,9 +163,8 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden transition-all duration-300 ease-in-out ${
-            isOpen ? "max-h-screen" : "max-h-0"
-          } overflow-hidden bg-white border-t border-gray-200`}
+          className={`lg:hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-screen" : "max-h-0"
+            } overflow-hidden bg-white border-t border-gray-200`}
         >
           <div className="px-6 py-4 space-y-4">
             {navLinks.map((link) => (
@@ -176,8 +173,7 @@ const Navbar = () => {
                 to={link.path}
                 onClick={() => setIsOpen(false)}
                 className={({ isActive }) =>
-                  `block text-gray-700 py-2 px-2 rounded hover:text-sky-600 transition ${
-                    isActive ? "text-sky-600 font-semibold" : ""
+                  `block text-gray-700 py-2 px-2 rounded hover:text-sky-600 transition ${isActive ? "text-sky-600 font-semibold" : ""
                   }`
                 }
               >
@@ -197,15 +193,13 @@ const Navbar = () => {
               >
                 Odoo Services
                 <FaAngleDown
-                  className={`transition-transform duration-200 ${
-                    activeMobileDropdown === "services" ? "rotate-180" : ""
-                  }`}
+                  className={`transition-transform duration-200 ${activeMobileDropdown === "services" ? "rotate-180" : ""
+                    }`}
                 />
               </button>
               <div
-                className={`pl-4 overflow-hidden transition-all duration-300 space-y-2 ${
-                  activeMobileDropdown === "services" ? "max-h-64" : "max-h-0"
-                }`}
+                className={`pl-4 overflow-hidden transition-all duration-300 space-y-2 ${activeMobileDropdown === "services" ? "max-h-64" : "max-h-0"
+                  }`}
               >
                 {serviceLinks.map((link) => (
                   <NavLink
@@ -232,15 +226,13 @@ const Navbar = () => {
               >
                 Other Services
                 <FaAngleDown
-                  className={`transition-transform duration-200 ${
-                    activeMobileDropdown === "other-services" ? "rotate-180" : ""
-                  }`}
+                  className={`transition-transform duration-200 ${activeMobileDropdown === "other-services" ? "rotate-180" : ""
+                    }`}
                 />
               </button>
               <div
-                className={`pl-4 overflow-hidden transition-all duration-300 space-y-2 ${
-                  activeMobileDropdown === "other-services" ? "max-h-64" : "max-h-0"
-                }`}
+                className={`pl-4 overflow-hidden transition-all duration-300 space-y-2 ${activeMobileDropdown === "other-services" ? "max-h-64" : "max-h-0"
+                  }`}
               >
                 {otherServices.map((link) => (
                   <NavLink
