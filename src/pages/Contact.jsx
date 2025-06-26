@@ -31,7 +31,7 @@ const Contact = () => {
     const message = `Hello TechSquareERP,\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nComments: ${comments}`;
 
     const encodedMessage = encodeURIComponent(message);
-    const phoneNumber = "+918208103515";
+    const phoneNumber = "918208103515";
     window.open(
       `https://wa.me/${phoneNumber}?text=${encodedMessage}`,
       "_blank"

@@ -7,6 +7,8 @@ import Contact from "./pages/Contact";
 import WhyChooseUs from "./pages/WhyChooseUs";
 import OdooImplementation from "./pages/OdooImplementation";
 import Services from "./pages/Services";
+import ScrollToTop from "./components/ScrollToTop"; // Import the ScrollToTop component
+
 
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
@@ -37,6 +39,7 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen">
       <Router>
+        <ScrollToTop /> Add ScrollToTop here
         <Nav />
         <main className="flex-grow">
           <Routes>
@@ -48,6 +51,7 @@ function App() {
               element={<OdooImplementation />}
             />
             <Route path="/services/:type" element={<Services />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
         <Footer />
