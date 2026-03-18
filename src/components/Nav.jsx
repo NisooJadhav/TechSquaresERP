@@ -273,7 +273,7 @@ const Navbar = () => {
             ))}
 
             <DesktopDropdown
-              label="Odoo Services"
+              label="Other Services"
               links={serviceLinks}
               isOpen={odooOpen}
               onOpen={() => setOdooOpen(true)}
