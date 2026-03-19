@@ -332,7 +332,7 @@
       "id": "development",
       "title": "Odoo Web/App Development",
       "subtitle": "Modern Web & Mobile Solutions",
-      "heroImage": "/api/placeholder/1200/600",
+      "heroImage": "/odoo-web.jpg",
       "overview": {
         "title": "Cutting-Edge Odoo Development Services",
         "description": "Get cutting-edge web or mobile solutions developed with our Odoo website/application development services! We specialize in crafting user-friendly websites and applications specific to your business requirements.",
@@ -446,7 +446,7 @@
       "id": "training",
       "title": "Odoo Training Services",
       "subtitle": "Empower Your Team with Expert Training",
-      "heroImage": "/api/placeholder/1200/600",
+      "heroImage": "/odoo-training.png",
       "overview": {
         "title": "Comprehensive Odoo Training Programs",
         "description": "Empower your team with comprehensive Odoo training programs designed for different skill levels and roles. Our training programs help your team master Odoo functionalities and maximize the return on your ERP investment.",

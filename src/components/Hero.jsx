@@ -372,6 +372,7 @@ const TechSquareHero = () => {
             transition={{ delay: 0.55 }}
             style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 40 }}
           >
+            <a href="mailto:contact@suktamtech.com">
             <motion.button
               whileHover={{ scale: 1.04, boxShadow: `0 16px 40px ${C.orange}50` }}
               whileTap={{ scale: 0.97 }}
@@ -384,9 +385,10 @@ const TechSquareHero = () => {
                 boxShadow: `0 8px 28px ${C.orange}40`,
               }}
             >
-              Talk to Our Experts
+              Book Free Consultation
               <ArrowRight size={16} />
             </motion.button>
+            </a>
 
             <motion.button
               whileHover={{ scale: 1.04, background: "rgba(255,255,255,0.1)" }}

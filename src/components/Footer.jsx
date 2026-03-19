@@ -24,21 +24,17 @@ const footerLinks = {
     { name: "Support & Maintenance", path: "/services/support" },
     { name: "Training", path: "/services/training" },
   ],
+  moreServices: [
+    { name: "Web Design & Development", path: "/services/web-development" },
+    { name: "Automation Testing", path: "/services/automation-testing" },
+    { name: "Digital Marketing", path: "/services/digital-marketing" },
+    { name: "Graphic Designing", path: "/services/graphic-designing" },
+    { name: "RPA", path: "/services/rpa" },
+  ],
   company: [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
     { name: "Why Choose Us", path: "/why-choose-us" },
-    { name: "Case Studies", path: "/case-studies" },
-    { name: "Blog", path: "/blog" },
-    { name: "Contact", path: "/contact" },
-  ],
-  industries: [
-    { name: "Manufacturing", path: "/industries/manufacturing" },
-    { name: "Retail & Distribution", path: "/industries/retail" },
-    { name: "Healthcare", path: "/industries/healthcare" },
-    { name: "Education", path: "/industries/education" },
-    { name: "Logistics", path: "/industries/logistics" },
-    { name: "Professional Services", path: "/industries/services" },
   ],
 };
 
@@ -104,7 +100,7 @@ const Footer = () => {
               Talk to a certified Odoo expert today — free 30-min consultation.
             </p>
           </div>
-          <NavLink to="/contact" onClick={scrollTop}>
+          <a href="mailto:contact@suktamtech.com">
             <motion.button
               whileHover={{ scale: 1.04, boxShadow: `0 12px 32px ${C.orange}50` }}
               whileTap={{ scale: 0.97 }}
@@ -120,17 +116,18 @@ const Footer = () => {
             >
               Talk to Our ERP Experts →
             </motion.button>
-          </NavLink>
+          </a>
         </div>
 
         {/* ── Main grid ── */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "2fr 1fr 1fr 1fr",
-          gap: 40,
-          marginBottom: 48,
-        }}
-        className="footer-main-grid"
+        <div
+          className="footer-main-grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1.6fr 1fr 1fr 1fr",
+            gap: 40,
+            marginBottom: 48,
+          }}
         >
           {/* Brand col */}
           <div>
@@ -138,7 +135,7 @@ const Footer = () => {
               <img src={logo} alt="Suktam Technologies" style={{ height: 64, width: "auto", marginBottom: 16 }} />
             </NavLink>
             <p style={{ fontSize: "0.86rem", lineHeight: 1.7, color: "rgba(255,255,255,0.4)", maxWidth: 240, marginBottom: 20 }}>
-              5+ years of expertise in delivering enterprise ERP solutions that drive operational excellence and business growth.
+              15+ years of expertise in delivering enterprise ERP solutions that drive operational excellence and business growth.
             </p>
 
             {/* Socials */}
@@ -172,7 +169,6 @@ const Footer = () => {
             {/* Contact info */}
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {[
-                { Icon: FaPhoneAlt, text: "+91 82081 03515", href: "tel:+918208103515", color: "#22C55E" },
                 { Icon: FaEnvelope, text: "contact@suktamtech.com", href: "mailto:contact@suktamtech.com", color: C.sky },
               ].map((c, i) => (
                 <a key={i} href={c.href}
@@ -198,14 +194,14 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Services */}
-          <FooterCol title="Services" links={footerLinks.services} />
+          {/* Odoo Services */}
+          <FooterCol title="Odoo Services" links={footerLinks.services} />
+
+          {/* More Services */}
+          <FooterCol title="More Services" links={footerLinks.moreServices} />
 
           {/* Company */}
           <FooterCol title="Company" links={footerLinks.company} />
-
-          {/* Industries */}
-          <FooterCol title="Industries" links={footerLinks.industries} />
         </div>
 
         {/* ── Newsletter ── */}
@@ -284,31 +280,21 @@ const Footer = () => {
           display: "flex", alignItems: "center", justifyContent: "space-between",
           flexWrap: "wrap", gap: 12,
         }}>
-          <span style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.3)" }}>
+          <span style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.3)", textAlign: "center", flex: "1 1 100%" }}>
             © {new Date().getFullYear()} Suktam Technologies. All rights reserved.
           </span>
-          <div style={{ display: "flex", gap: 20 }}>
-            {["Privacy Policy", "Terms of Service", "Sitemap"].map((t, i) => (
-              <a key={i} href="#"
-                style={{
-                  color: "rgba(255,255,255,0.3)", fontSize: "0.78rem",
-                  textDecoration: "none", transition: "color 0.2s",
-                }}
-                onMouseEnter={e => e.currentTarget.style.color = C.orange}
-                onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.3)"}
-              >
-                {t}
-              </a>
-            ))}
-          </div>
         </div>
       </div>
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=DM+Sans:wght@400;500&display=swap');
         input::placeholder { color: rgba(255,255,255,0.28); }
-        @media(max-width:900px) { .footer-main-grid { grid-template-columns: 1fr 1fr !important; } }
-        @media(max-width:560px) { .footer-main-grid { grid-template-columns: 1fr !important; } }
+        @media (max-width: 1024px) {
+          .footer-main-grid { grid-template-columns: 1fr 1fr !important; }
+        }
+        @media (max-width: 560px) {
+          .footer-main-grid { grid-template-columns: 1fr !important; }
+        }
       `}</style>
     </footer>
   );

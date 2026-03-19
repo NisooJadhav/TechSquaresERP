@@ -1,0 +1,455 @@
+{
+  "services": {
+    "migration": {
+      "category": "Odoo Services",
+      "title": "Odoo Migration",
+      "subtitle": "Seamlessly migrate your existing ERP system to Odoo with zero data loss and minimal downtime.",
+      "heroImage": "/images/migration.jpg",
+      "overview": {
+        "title": "Hassle-Free Odoo Migration Services",
+        "description": "We handle end-to-end migration from legacy systems or older Odoo versions to the latest Odoo release.",
+        "fullDescription": "Our certified Odoo migration experts follow a battle-tested methodology to ensure your data integrity, custom configurations, and business continuity are preserved throughout the migration journey. Whether you're moving from SAP, QuickBooks, or an older Odoo version, we've got you covered."
+      },
+      "technologies": ["Odoo 17", "PostgreSQL", "Python", "XML-RPC", "REST API"],
+      "industries": ["Manufacturing", "Retail", "Healthcare", "Education", "Logistics"],
+      "keyFeatures": [
+        { "icon": "🔄", "title": "Data Migration", "description": "Complete migration of master data, transactions, and historical records with full validation." },
+        { "icon": "⚡", "title": "Minimal Downtime", "description": "Phased migration approach ensures your business keeps running during the transition." },
+        { "icon": "🔒", "title": "Data Integrity", "description": "Multi-layer validation ensures 100% accuracy of migrated data." },
+        { "icon": "🛠", "title": "Custom Module Migration", "description": "All your custom modules are upgraded and tested for the new Odoo version." },
+        { "icon": "📊", "title": "Post-Migration Support", "description": "Dedicated support team available after go-live to resolve any issues quickly." },
+        { "icon": "🎯", "title": "Version Upgrade", "description": "Smooth upgrade paths from Odoo 12, 13, 14, 15, or 16 to the latest version." }
+      ],
+      "process": [
+        { "step": "01", "title": "Discovery & Assessment", "description": "We audit your existing system, data volumes, custom modules, and integrations to create a migration blueprint." },
+        { "step": "02", "title": "Data Mapping", "description": "Map source data fields to Odoo's data model, handling transformations and cleansing." },
+        { "step": "03", "title": "Test Migration", "description": "Run a full trial migration on a staging environment and validate results with your team." },
+        { "step": "04", "title": "Go-Live Migration", "description": "Execute the final migration during a planned downtime window with our team on standby." },
+        { "step": "05", "title": "Validation & Handover", "description": "Verify all data, run UAT, and hand over to your team with full documentation." }
+      ],
+      "benefits": [
+        "Zero data loss guaranteed",
+        "Reduced migration timeline by up to 40%",
+        "Dedicated project manager throughout",
+        "Full rollback plan in place",
+        "Post-migration hypercare support",
+        "Cost-effective compared to in-house migration"
+      ],
+      "faqs": [
+        { "question": "How long does an Odoo migration take?", "answer": "Depending on data volume and complexity, migrations typically take 4–12 weeks from kickoff to go-live." },
+        { "question": "Will I lose any data during migration?", "answer": "No. We run multiple validation passes and a complete test migration before the final go-live to ensure zero data loss." },
+        { "question": "Can you migrate from non-Odoo systems?", "answer": "Yes, we migrate from SAP, Microsoft Dynamics, QuickBooks, Tally, and most other ERP/accounting platforms." }
+      ]
+    },
+    "customization": {
+      "category": "Odoo Services",
+      "title": "Odoo Customization",
+      "subtitle": "Tailor Odoo to fit your unique business workflows with expert customization services.",
+      "heroImage": "/images/customization.jpg",
+      "overview": {
+        "title": "Custom Odoo Solutions Built for You",
+        "description": "We extend and customize Odoo modules to match your exact business processes.",
+        "fullDescription": "From custom fields and views to entirely new modules, our team builds Odoo customizations that feel native to the platform while solving your specific challenges. Every customization is built with upgradability and performance in mind."
+      },
+      "technologies": ["Python", "OWL Framework", "QWeb", "PostgreSQL", "XML", "JavaScript"],
+      "industries": ["Manufacturing", "Retail", "Real Estate", "Professional Services", "F&B"],
+      "keyFeatures": [
+        { "icon": "🛠", "title": "Custom Module Development", "description": "Build new Odoo modules from scratch tailored to your business needs." },
+        { "icon": "📋", "title": "Report Customization", "description": "Custom QWeb reports, dashboards, and printed documents in your brand style." },
+        { "icon": "🔧", "title": "Workflow Automation", "description": "Automate repetitive tasks and approvals with custom Odoo workflows." },
+        { "icon": "🎨", "title": "UI/UX Customization", "description": "Modify views, menus, and interfaces for a tailored user experience." },
+        { "icon": "📦", "title": "Module Extension", "description": "Extend existing Odoo modules without touching core code for safe upgrades." },
+        { "icon": "🔗", "title": "API Development", "description": "Build REST APIs to connect Odoo with external tools and platforms." }
+      ],
+      "process": [
+        { "step": "01", "title": "Requirement Analysis", "description": "Deep-dive sessions to understand your workflow and customization goals." },
+        { "step": "02", "title": "Solution Design", "description": "Architect the customization approach with mockups and technical specs." },
+        { "step": "03", "title": "Development", "description": "Agile development with regular demos and feedback cycles." },
+        { "step": "04", "title": "Testing & QA", "description": "Thorough unit testing, integration testing, and UAT with your team." },
+        { "step": "05", "title": "Deployment & Training", "description": "Deploy to production and train your users on the new functionality." }
+      ],
+      "benefits": [
+        "Odoo aligned perfectly to your workflows",
+        "Upgrade-safe customizations",
+        "Faster user adoption",
+        "Reduced manual effort through automation",
+        "Ongoing maintenance support available",
+        "Full source code ownership"
+      ],
+      "faqs": [
+        { "question": "Will customizations break during Odoo upgrades?", "answer": "We build all customizations using Odoo best practices and inheritance patterns to ensure they remain upgrade-safe." },
+        { "question": "How much does Odoo customization cost?", "answer": "Costs vary by scope. We provide detailed estimates after the requirement analysis phase, with no hidden charges." },
+        { "question": "Can you customize third-party Odoo modules?", "answer": "Yes, we can extend or modify third-party modules while keeping them updateable from their original source." }
+      ]
+    },
+    "integration": {
+      "category": "Odoo Services",
+      "title": "Odoo Integration",
+      "subtitle": "Connect Odoo seamlessly with your existing tools, platforms, and third-party services.",
+      "heroImage": "/images/integration.jpg",
+      "overview": {
+        "title": "Seamless Odoo Integration Services",
+        "description": "We integrate Odoo with payment gateways, eCommerce platforms, CRMs, shipping providers, and more.",
+        "fullDescription": "Break down data silos by connecting Odoo to the tools your business already uses. Our integration experts design robust, real-time data flows that eliminate manual entry and keep all your systems in sync."
+      },
+      "technologies": ["REST API", "XML-RPC", "Webhooks", "JSON", "OAuth2", "Python"],
+      "industries": ["eCommerce", "Logistics", "Finance", "Healthcare", "Retail"],
+      "keyFeatures": [
+        { "icon": "🔗", "title": "API Integration", "description": "Connect Odoo to any system with a REST or SOAP API using our custom connectors." },
+        { "icon": "🛒", "title": "eCommerce Integration", "description": "Sync orders, products, and inventory between Odoo and Shopify, WooCommerce, or Magento." },
+        { "icon": "💳", "title": "Payment Gateway", "description": "Integrate Stripe, PayPal, Razorpay, and other payment gateways into Odoo." },
+        { "icon": "📦", "title": "Shipping Integration", "description": "Real-time shipping rates and tracking with FedEx, DHL, UPS, and local carriers." },
+        { "icon": "📊", "title": "BI & Analytics", "description": "Push Odoo data to Power BI, Tableau, or Google Data Studio for advanced reporting." },
+        { "icon": "🤝", "title": "CRM Integration", "description": "Sync Odoo with Salesforce, HubSpot, or Zoho CRM for unified customer data." }
+      ],
+      "process": [
+        { "step": "01", "title": "Integration Mapping", "description": "Identify all systems, data flows, and sync requirements." },
+        { "step": "02", "title": "API Analysis", "description": "Review API capabilities, authentication, and rate limits of both platforms." },
+        { "step": "03", "title": "Connector Development", "description": "Build and configure the integration layer with error handling and logging." },
+        { "step": "04", "title": "Testing", "description": "End-to-end testing across all data flows and edge cases." },
+        { "step": "05", "title": "Go-Live & Monitoring", "description": "Deploy and set up monitoring to catch any sync issues proactively." }
+      ],
+      "benefits": [
+        "Eliminate manual data entry between systems",
+        "Real-time data synchronization",
+        "Reduced errors from duplicate data",
+        "Unified reporting across platforms",
+        "Scalable integration architecture",
+        "Ongoing monitoring and support"
+      ],
+      "faqs": [
+        { "question": "Which platforms can you integrate with Odoo?", "answer": "We integrate with virtually any platform that has an API — including Shopify, WooCommerce, Salesforce, QuickBooks, Magento, and hundreds more." },
+        { "question": "Is the integration real-time or scheduled?", "answer": "We implement both real-time (webhook-based) and scheduled (batch) integrations depending on your requirements and the systems involved." },
+        { "question": "What happens if the integration fails?", "answer": "We build retry logic, error alerts, and detailed logging into every integration so failures are caught and resolved quickly." }
+      ]
+    },
+    "development": {
+      "category": "Odoo Services",
+      "title": "Odoo Web/App Development",
+      "subtitle": "Build powerful web and mobile applications on top of the Odoo platform.",
+      "heroImage": "/images/development.jpg",
+      "overview": {
+        "title": "Custom Odoo Web & App Development",
+        "description": "We develop customer-facing portals, mobile apps, and web applications powered by Odoo.",
+        "fullDescription": "Leverage Odoo's powerful backend to build modern web portals, PWAs, and mobile applications. Our full-stack team combines Odoo expertise with modern frontend technologies to deliver exceptional digital experiences."
+      },
+      "technologies": ["OWL", "React", "Flutter", "Python", "PostgreSQL", "REST API"],
+      "industries": ["eCommerce", "Healthcare", "Education", "Real Estate", "Logistics"],
+      "keyFeatures": [
+        { "icon": "</>", "title": "Odoo Website Builder", "description": "Custom website themes and pages built on Odoo's native website module." },
+        { "icon": "📱", "title": "Mobile App Development", "description": "Native and cross-platform mobile apps connected to your Odoo backend." },
+        { "icon": "🌐", "title": "Customer Portal", "description": "Self-service portals for customers to track orders, invoices, and support tickets." },
+        { "icon": "🛒", "title": "eCommerce Development", "description": "Full-featured online stores built on Odoo eCommerce with custom designs." },
+        { "icon": "📊", "title": "Custom Dashboards", "description": "Interactive dashboards and reporting apps tailored to your KPIs." },
+        { "icon": "🔐", "title": "Vendor/Partner Portals", "description": "Dedicated portals for vendors and partners to collaborate with your business." }
+      ],
+      "process": [
+        { "step": "01", "title": "Discovery", "description": "Understand user journeys, business goals, and technical requirements." },
+        { "step": "02", "title": "UI/UX Design", "description": "Create wireframes and high-fidelity designs for approval before development." },
+        { "step": "03", "title": "Development", "description": "Agile sprints with regular builds delivered for your feedback." },
+        { "step": "04", "title": "QA & Testing", "description": "Cross-browser, cross-device testing and performance optimization." },
+        { "step": "05", "title": "Launch & Support", "description": "Production deployment with post-launch monitoring and maintenance." }
+      ],
+      "benefits": [
+        "Modern, responsive designs",
+        "Deeply integrated with Odoo data",
+        "Scalable architecture",
+        "SEO-optimized web applications",
+        "Ongoing maintenance plans available",
+        "Fast time-to-market"
+      ],
+      "faqs": [
+        { "question": "Can you build a mobile app connected to our Odoo system?", "answer": "Yes, we build Flutter-based cross-platform apps and React Native apps that connect to Odoo via REST APIs." },
+        { "question": "Do you design the UI or just develop?", "answer": "We do both — our team includes UI/UX designers who create full designs before development begins." },
+        { "question": "Can we host the app on our own servers?", "answer": "Absolutely. We support on-premise, cloud (AWS, GCP, Azure), and Odoo.sh hosting options." }
+      ]
+    },
+    "training": {
+      "category": "Odoo Services",
+      "title": "Odoo Training",
+      "subtitle": "Empower your team with hands-on Odoo training tailored to your business processes.",
+      "heroImage": "/images/training.jpg",
+      "overview": {
+        "title": "Comprehensive Odoo Training Programs",
+        "description": "Role-based training programs designed to maximize user adoption and productivity.",
+        "fullDescription": "Our Odoo-certified trainers deliver customized training programs — from end-user sessions to technical developer training. We train your team using your actual Odoo environment and real business scenarios for maximum relevance."
+      },
+      "technologies": ["Odoo 17", "Odoo Studio", "Python", "QWeb", "OWL Framework"],
+      "industries": ["All Industries"],
+      "keyFeatures": [
+        { "icon": "🎓", "title": "End-User Training", "description": "Module-specific training for your day-to-day Odoo users." },
+        { "icon": "👨‍💻", "title": "Developer Training", "description": "Technical training on Odoo module development, ORM, and OWL." },
+        { "icon": "📋", "title": "Admin Training", "description": "System administration, user management, and configuration training." },
+        { "icon": "🎯", "title": "Role-Based Sessions", "description": "Customized sessions for different roles — sales, accounts, warehouse, HR." },
+        { "icon": "📹", "title": "Recorded Sessions", "description": "All training sessions recorded and provided for future reference." },
+        { "icon": "📚", "title": "Training Materials", "description": "Custom manuals, SOPs, and quick-reference guides for your team." }
+      ],
+      "process": [
+        { "step": "01", "title": "Training Needs Analysis", "description": "Identify roles, knowledge gaps, and training objectives." },
+        { "step": "02", "title": "Curriculum Design", "description": "Design a customized training plan based on your Odoo configuration." },
+        { "step": "03", "title": "Training Delivery", "description": "Live sessions via online or on-site, hands-on practice on your Odoo instance." },
+        { "step": "04", "title": "Assessment", "description": "Post-training quizzes and practical assessments to gauge understanding." },
+        { "step": "05", "title": "Ongoing Support", "description": "Post-training helpdesk support for questions that come up on the job." }
+      ],
+      "benefits": [
+        "Higher user adoption rates",
+        "Reduced support tickets post go-live",
+        "Training customized to your workflows",
+        "Recordings for onboarding new staff",
+        "Certified Odoo trainers",
+        "Flexible online and on-site delivery"
+      ],
+      "faqs": [
+        { "question": "Do you train on our actual Odoo system?", "answer": "Yes, all training is conducted on your configured Odoo environment using your real data scenarios for maximum relevance." },
+        { "question": "How long is a typical training program?", "answer": "Programs range from 1-day workshops to multi-week courses depending on the number of modules and roles involved." },
+        { "question": "Can training be done remotely?", "answer": "Yes, we offer fully remote training via video conferencing with screen sharing and recorded sessions." }
+      ]
+    },
+    "support": {
+      "category": "Odoo Services",
+      "title": "Support & Maintenance",
+      "subtitle": "Keep your Odoo system running smoothly with our dedicated support and maintenance plans.",
+      "heroImage": "/images/support.jpg",
+      "overview": {
+        "title": "Reliable Odoo Support & Maintenance",
+        "description": "Round-the-clock support plans to keep your Odoo system optimized and issue-free.",
+        "fullDescription": "Our support team acts as an extension of your IT department — resolving issues, applying updates, monitoring performance, and continuously improving your Odoo system so you can focus on your business."
+      },
+      "technologies": ["Odoo", "PostgreSQL", "Linux", "Nginx", "Docker", "CI/CD"],
+      "industries": ["All Industries"],
+      "keyFeatures": [
+        { "icon": "🎧", "title": "Helpdesk Support", "description": "Dedicated helpdesk with guaranteed SLA response times for all issues." },
+        { "icon": "🔧", "title": "Bug Fixes", "description": "Fast resolution of bugs, errors, and unexpected behavior in your Odoo system." },
+        { "icon": "🔄", "title": "Version Updates", "description": "Safe application of Odoo security patches and minor version updates." },
+        { "icon": "📊", "title": "Performance Monitoring", "description": "Proactive monitoring of server health, database performance, and uptime." },
+        { "icon": "🔒", "title": "Security Management", "description": "Regular security audits, patch management, and access control reviews." },
+        { "icon": "📋", "title": "Monthly Reports", "description": "Detailed monthly reports on system health, issues resolved, and usage trends." }
+      ],
+      "process": [
+        { "step": "01", "title": "Onboarding", "description": "Audit your Odoo setup, document configurations, and set up monitoring." },
+        { "step": "02", "title": "SLA Agreement", "description": "Define response and resolution SLAs based on your business criticality." },
+        { "step": "03", "title": "Issue Tracking", "description": "All issues logged, prioritized, and tracked in our helpdesk system." },
+        { "step": "04", "title": "Resolution", "description": "Issues resolved by certified Odoo developers with full transparency." },
+        { "step": "05", "title": "Review & Optimize", "description": "Monthly review calls to discuss system health and improvement opportunities." }
+      ],
+      "benefits": [
+        "Guaranteed SLA response times",
+        "Certified Odoo support engineers",
+        "Proactive issue detection",
+        "Predictable monthly cost",
+        "Business continuity assurance",
+        "Continuous system optimization"
+      ],
+      "faqs": [
+        { "question": "What are your support hours?", "answer": "We offer 8×5, 16×5, and 24×7 support plans depending on your business needs and criticality." },
+        { "question": "What is the typical response time for critical issues?", "answer": "Critical issues receive an initial response within 1 hour under our premium SLA plans." },
+        { "question": "Do you support Odoo systems you didn't implement?", "answer": "Yes, we onboard and support Odoo systems implemented by other partners after an initial audit." }
+      ]
+    },
+    "web-development": {
+      "category": "More Services",
+      "title": "Web Design & Development",
+      "subtitle": "Craft stunning, high-performance websites and web applications that drive results for your business.",
+      "heroImage": "/images/web-development.jpg",
+      "overview": {
+        "title": "Modern Web Design & Development",
+        "description": "We design and develop custom websites and web applications that combine beautiful aesthetics with powerful functionality.",
+        "fullDescription": "From landing pages to complex web platforms, our team of designers and developers build digital experiences that engage visitors and convert them into customers. We use modern frameworks and follow best practices for performance, accessibility, and SEO."
+      },
+      "technologies": ["React", "Next.js", "Node.js", "Tailwind CSS", "TypeScript", "PostgreSQL", "MongoDB", "AWS"],
+      "industries": ["eCommerce", "Healthcare", "Real Estate", "Education", "Finance", "Startups"],
+      "keyFeatures": [
+        { "icon": "🎨", "title": "UI/UX Design", "description": "User-centred design with wireframes, prototypes, and high-fidelity mockups before a single line of code is written." },
+        { "icon": "⚡", "title": "Performance Optimized", "description": "Sub-2-second load times, Core Web Vitals optimization, and CDN delivery for blazing-fast experiences." },
+        { "icon": "📱", "title": "Responsive Design", "description": "Pixel-perfect experiences across all devices — mobile, tablet, and desktop." },
+        { "icon": "🔍", "title": "SEO-Ready", "description": "Technical SEO baked in from the start — structured data, sitemaps, and semantic HTML." },
+        { "icon": "🛒", "title": "eCommerce Solutions", "description": "Full-featured online stores with payment gateways, inventory management, and order tracking." },
+        { "icon": "🔒", "title": "Security First", "description": "SSL, OWASP best practices, and regular security audits to keep your site protected." }
+      ],
+      "process": [
+        { "step": "01", "title": "Discovery & Strategy", "description": "Understand your goals, target audience, competitors, and technical requirements." },
+        { "step": "02", "title": "Design", "description": "Create wireframes and high-fidelity UI designs with your feedback at every step." },
+        { "step": "03", "title": "Development", "description": "Agile development sprints with regular demos and staged deployments." },
+        { "step": "04", "title": "Testing & QA", "description": "Cross-browser, cross-device testing, performance audits, and accessibility checks." },
+        { "step": "05", "title": "Launch & Growth", "description": "Production launch with analytics setup, SEO baseline, and ongoing optimization." }
+      ],
+      "benefits": [
+        "Custom designs — no templates",
+        "Faster load times improve conversions",
+        "Mobile-first approach",
+        "Ongoing maintenance and updates",
+        "SEO foundation built in",
+        "Scalable architecture for growth"
+      ],
+      "faqs": [
+        { "question": "How long does it take to build a website?", "answer": "A standard business website takes 4–8 weeks. Complex web applications can take 3–6 months depending on scope." },
+        { "question": "Do you provide website hosting?", "answer": "Yes, we offer managed hosting on AWS or GCP, or we can deploy to your preferred hosting provider." },
+        { "question": "Will I be able to update the website myself?", "answer": "Absolutely. We build with a CMS and provide training so your team can manage content independently." }
+      ]
+    },
+    "automation-testing": {
+      "category": "More Services",
+      "title": "Automation Testing",
+      "subtitle": "Accelerate your software delivery with robust automated testing that catches bugs before they reach production.",
+      "heroImage": "/images/automation-testing.jpg",
+      "overview": {
+        "title": "End-to-End Automation Testing Services",
+        "description": "We build comprehensive automated test suites that give your team confidence to ship faster with fewer regressions.",
+        "fullDescription": "Manual testing is slow, expensive, and error-prone. Our QA engineers design and implement automated testing frameworks covering UI, API, performance, and security — fully integrated into your CI/CD pipeline for continuous quality assurance."
+      },
+      "technologies": ["Selenium", "Playwright", "Cypress", "Pytest", "JMeter", "Postman", "Jenkins", "GitHub Actions"],
+      "industries": ["FinTech", "Healthcare", "eCommerce", "SaaS", "Banking", "Telecom"],
+      "keyFeatures": [
+        { "icon": "⚙️", "title": "UI Test Automation", "description": "Cross-browser automated UI tests with Selenium, Playwright, or Cypress." },
+        { "icon": "🔗", "title": "API Testing", "description": "Comprehensive REST and GraphQL API testing with automated regression suites." },
+        { "icon": "📊", "title": "Performance Testing", "description": "Load, stress, and endurance testing with JMeter to ensure your app scales." },
+        { "icon": "🔒", "title": "Security Testing", "description": "Automated OWASP vulnerability scans and penetration testing frameworks." },
+        { "icon": "🔄", "title": "CI/CD Integration", "description": "Tests run automatically on every commit via GitHub Actions, Jenkins, or GitLab CI." },
+        { "icon": "📋", "title": "Test Reporting", "description": "Rich HTML and dashboard-based reports with screenshots, logs, and trend analysis." }
+      ],
+      "process": [
+        { "step": "01", "title": "Test Strategy", "description": "Define test scope, types, tools, and coverage targets aligned to your release cycle." },
+        { "step": "02", "title": "Framework Setup", "description": "Set up the automation framework, CI integration, and reporting infrastructure." },
+        { "step": "03", "title": "Test Development", "description": "Write automated test scripts for critical user journeys and regression scenarios." },
+        { "step": "04", "title": "Execution & Reporting", "description": "Run tests on every build and deliver actionable reports to your development team." },
+        { "step": "05", "title": "Maintenance", "description": "Keep tests updated as your application evolves with a dedicated maintenance cycle." }
+      ],
+      "benefits": [
+        "Catch bugs before production",
+        "Reduce manual QA effort by up to 70%",
+        "Faster release cycles",
+        "Consistent test execution every time",
+        "Full CI/CD pipeline integration",
+        "Detailed defect traceability reports"
+      ],
+      "faqs": [
+        { "question": "What testing frameworks do you use?", "answer": "We select frameworks based on your tech stack — Playwright or Cypress for web, Appium for mobile, Pytest for backend, and JMeter for performance." },
+        { "question": "Can you automate tests for our existing application?", "answer": "Yes, we assess your application's testability and build automation suites for existing products, not just new ones." },
+        { "question": "How quickly can automation be set up?", "answer": "A basic automation framework with initial test suites can typically be delivered within 3–4 weeks." }
+      ]
+    },
+    "digital-marketing": {
+      "category": "More Services",
+      "title": "Digital Marketing",
+      "subtitle": "Grow your brand, generate leads, and drive revenue with data-driven digital marketing strategies.",
+      "heroImage": "/images/digital-marketing.jpg",
+      "overview": {
+        "title": "Results-Driven Digital Marketing",
+        "description": "We craft and execute digital marketing strategies that connect your brand to the right audience at the right time.",
+        "fullDescription": "From SEO and paid ads to social media and email campaigns, our digital marketing team uses data at every step to maximize your ROI. We don't just drive traffic — we drive the right traffic that converts into real business outcomes."
+      },
+      "technologies": ["Google Ads", "Meta Ads", "SEMrush", "HubSpot", "Mailchimp", "Google Analytics 4", "Hotjar"],
+      "industries": ["eCommerce", "Healthcare", "Real Estate", "Education", "B2B SaaS", "Hospitality"],
+      "keyFeatures": [
+        { "icon": "🔍", "title": "Search Engine Optimization", "description": "Technical SEO, on-page optimization, and link building to rank higher on Google." },
+        { "icon": "📈", "title": "Paid Advertising", "description": "High-ROI Google Ads, Meta Ads, and LinkedIn campaigns managed by certified experts." },
+        { "icon": "📱", "title": "Social Media Marketing", "description": "Organic and paid social strategies across Instagram, LinkedIn, Facebook, and more." },
+        { "icon": "✉️", "title": "Email Marketing", "description": "Automated email sequences and campaigns that nurture leads and retain customers." },
+        { "icon": "📝", "title": "Content Marketing", "description": "SEO-driven blogs, case studies, and content that builds authority in your industry." },
+        { "icon": "📊", "title": "Analytics & Reporting", "description": "Monthly performance reports with clear KPIs, insights, and recommendations." }
+      ],
+      "process": [
+        { "step": "01", "title": "Audit & Strategy", "description": "Audit your current digital presence and build a 90-day marketing roadmap." },
+        { "step": "02", "title": "Campaign Setup", "description": "Set up tracking, ad accounts, landing pages, and content calendars." },
+        { "step": "03", "title": "Launch & Execute", "description": "Launch campaigns across all agreed channels with daily monitoring." },
+        { "step": "04", "title": "Optimize", "description": "Continuous A/B testing and optimization based on real performance data." },
+        { "step": "05", "title": "Report & Scale", "description": "Monthly reports with insights and scaled investment in what's working." }
+      ],
+      "benefits": [
+        "Measurable ROI on every campaign",
+        "Certified Google and Meta Ads experts",
+        "Full-funnel marketing coverage",
+        "Transparent monthly reporting",
+        "Dedicated account manager",
+        "Flexible, cancel-anytime contracts"
+      ],
+      "faqs": [
+        { "question": "How soon will I see results?", "answer": "Paid ads can deliver results within days. SEO typically shows meaningful impact within 3–6 months of consistent effort." },
+        { "question": "Do you handle content creation too?", "answer": "Yes, our team includes copywriters and designers who create all ad creatives, blog posts, and social content." },
+        { "question": "What is the minimum budget for paid ads?", "answer": "We typically recommend a minimum ad spend of ₹30,000/month for meaningful paid campaign results." }
+      ]
+    },
+    "graphic-designing": {
+      "category": "More Services",
+      "title": "Graphic Designing",
+      "subtitle": "Make your brand unforgettable with compelling visual design that communicates your story.",
+      "heroImage": "/images/graphic-designing.jpg",
+      "overview": {
+        "title": "Creative Graphic Design Services",
+        "description": "We create visual identities, marketing materials, and digital assets that set your brand apart.",
+        "fullDescription": "Good design builds trust. Our creative team combines strategic thinking with artistic execution to deliver designs that not only look stunning but also communicate your brand values clearly. From logo design to complete brand systems, we cover every visual touchpoint."
+      },
+      "technologies": ["Adobe Illustrator", "Adobe Photoshop", "Figma", "Adobe InDesign", "After Effects", "Canva Pro"],
+      "industries": ["Startups", "Retail", "F&B", "Healthcare", "Education", "Real Estate"],
+      "keyFeatures": [
+        { "icon": "🎨", "title": "Brand Identity Design", "description": "Logo, colour palette, typography, and brand guidelines that define your visual identity." },
+        { "icon": "📱", "title": "Social Media Design", "description": "On-brand social media templates, posts, stories, and ads for all platforms." },
+        { "icon": "📄", "title": "Print Design", "description": "Business cards, brochures, flyers, banners, and packaging design for physical touchpoints." },
+        { "icon": "🖥", "title": "UI Design", "description": "High-fidelity UI mockups and design systems for web and mobile applications." },
+        { "icon": "🎬", "title": "Motion Graphics", "description": "Animated logos, social reels, and explainer video graphics that capture attention." },
+        { "icon": "📊", "title": "Presentation Design", "description": "Investor decks, sales presentations, and pitch decks designed to impress." }
+      ],
+      "process": [
+        { "step": "01", "title": "Brief & Research", "description": "Understand your brand, audience, competitors, and design objectives." },
+        { "step": "02", "title": "Concept Development", "description": "Present 2–3 creative directions for your feedback and selection." },
+        { "step": "03", "title": "Design Refinement", "description": "Refine the chosen direction through collaborative feedback rounds." },
+        { "step": "04", "title": "Final Delivery", "description": "Deliver final files in all required formats — print and digital ready." },
+        { "step": "05", "title": "Brand Guidelines", "description": "Document usage rules to ensure brand consistency across all touchpoints." }
+      ],
+      "benefits": [
+        "Professional brand that builds trust",
+        "Consistent visual identity across all channels",
+        "Unlimited revisions until you're happy",
+        "All source files provided",
+        "Fast turnaround times",
+        "Experienced designers with diverse industry exposure"
+      ],
+      "faqs": [
+        { "question": "How many revisions are included?", "answer": "We include unlimited revisions within the project scope to ensure you are completely satisfied with the final result." },
+        { "question": "What file formats will I receive?", "answer": "You'll receive all source files (AI, PSD, Figma) plus export-ready files (PDF, PNG, SVG, JPEG) in both print and web resolutions." },
+        { "question": "Can you match our existing brand style?", "answer": "Absolutely. We can create new designs that align with your existing brand guidelines or help you evolve your visual identity." }
+      ]
+    },
+    "rpa": {
+      "category": "More Services",
+      "title": "RPA",
+      "subtitle": "Automate repetitive business processes with Robotic Process Automation and reclaim thousands of hours.",
+      "heroImage": "/images/rpa.jpg",
+      "overview": {
+        "title": "Robotic Process Automation (RPA)",
+        "description": "We design, build, and manage RPA bots that automate high-volume, rule-based business processes across any system.",
+        "fullDescription": "RPA lets software bots handle the repetitive, time-consuming tasks your team does manually — data entry, report generation, invoice processing, and more. Our RPA experts implement automation that works across your existing systems with no API required, delivering ROI in weeks, not months."
+      },
+      "technologies": ["UiPath", "Automation Anywhere", "Power Automate", "Blue Prism", "Python", "OCR"],
+      "industries": ["Banking & Finance", "Insurance", "Healthcare", "Manufacturing", "Retail", "HR & Payroll"],
+      "keyFeatures": [
+        { "icon": "🤖", "title": "Bot Development", "description": "Custom RPA bots designed for your specific processes and existing systems." },
+        { "icon": "📋", "title": "Process Assessment", "description": "We identify and rank your automation candidates by ROI and feasibility." },
+        { "icon": "🔗", "title": "System Agnostic", "description": "Bots work across any application — legacy systems, web portals, desktop apps, and SAP." },
+        { "icon": "📊", "title": "Process Mining", "description": "Analyse your actual process flows to find hidden inefficiencies before automating." },
+        { "icon": "🔄", "title": "Attended & Unattended Bots", "description": "Both human-assisted and fully autonomous bots depending on your process needs." },
+        { "icon": "📈", "title": "ROI Tracking", "description": "Real-time dashboards showing hours saved, cost reduction, and error rates." }
+      ],
+      "process": [
+        { "step": "01", "title": "Process Discovery", "description": "Map and document candidate processes, capturing every step, exception, and decision point." },
+        { "step": "02", "title": "Feasibility & ROI Analysis", "description": "Score each process by automation potential and expected return on investment." },
+        { "step": "03", "title": "Bot Development", "description": "Build and configure bots in a dev environment with comprehensive exception handling." },
+        { "step": "04", "title": "UAT & Go-Live", "description": "User acceptance testing followed by supervised production rollout." },
+        { "step": "05", "title": "Monitoring & Optimization", "description": "24/7 bot monitoring, maintenance, and continuous performance optimization." }
+      ],
+      "benefits": [
+        "Up to 80% reduction in manual effort",
+        "Bots work 24/7 without breaks",
+        "Near-zero error rates vs manual processing",
+        "ROI typically achieved within 3–6 months",
+        "No changes to existing systems required",
+        "Fully auditable process logs"
+      ],
+      "faqs": [
+        { "question": "Which processes are best suited for RPA?", "answer": "High-volume, rule-based, repetitive processes with structured data are ideal — such as invoice processing, data entry, report generation, and system reconciliation." },
+        { "question": "Do you need to change our existing systems?", "answer": "No. RPA bots interact with your systems at the UI level, just like a human would, so no system changes or APIs are required." },
+        { "question": "How quickly can we see ROI?", "answer": "Most clients see positive ROI within 3–6 months of deploying their first bot, with payback accelerating as more processes are automated." }
+      ]
+    }
+  }
+}

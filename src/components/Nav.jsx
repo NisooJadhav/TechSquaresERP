@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaBars, FaTimes, FaAngleDown, FaDownload } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "/logo.jpeg";
+import logo from "/logo-2.PNG";
 
 // ── Brand tokens
 const C = {
@@ -26,9 +26,11 @@ const serviceLinks = [
 ];
 
 const otherServices = [
-  { name: "Graphic Designing", path: "/services/graphic-designing", icon: "🎨" },
-  { name: "Web/App Development", path: "/services/development", icon: "💻" },
+  { name: "Web Design & Development", path: "/services/web-development", icon: "🌐" },
   { name: "Automation Testing", path: "/services/automation-testing", icon: "⚙️" },
+  { name: "Digital Marketing", path: "/services/digital-marketing", icon: "📈" },
+  { name: "Graphic Designing", path: "/services/graphic-designing", icon: "🎨" },
+  { name: "RPA", path: "/services/rpa", icon: "🤖" },
 ];
 
 const navLinks = [
@@ -58,6 +60,7 @@ const DesktopDropdown = ({ label, links, isOpen, onOpen, onClose }) => (
         fontFamily: "'DM Sans', sans-serif",
         padding: "6px 2px",
         transition: "color 0.2s",
+        whiteSpace: "nowrap",
       }}
     >
       {label}
@@ -97,7 +100,7 @@ const DesktopDropdown = ({ label, links, isOpen, onOpen, onClose }) => (
             background: `linear-gradient(90deg, ${C.orange}, ${C.blueL})`,
           }} />
 
-          {links.map((link, i) => (
+          {links.map((link) => (
             <NavLink
               key={link.name}
               to={link.path}
@@ -212,15 +215,50 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Close mobile menu on resize to desktop
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 1024) setIsOpen(false);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=DM+Sans:wght@400;500;600&display=swap');
-        .nav-link { text-decoration: none; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500; color: #0F172A; transition: color 0.2s; padding: 6px 2px; }
+
+        .nav-link {
+          text-decoration: none;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 0.9rem;
+          font-weight: 500;
+          color: #0F172A;
+          transition: color 0.2s;
+          padding: 6px 2px;
+          white-space: nowrap;
+        }
         .nav-link:hover { color: #F97316; }
         .nav-link.active { color: #F97316; font-weight: 700; }
+
+        /* Responsive: show desktop links only on lg+ */
+        .desktop-links { display: none; }
+        @media (min-width: 1024px) {
+          .desktop-links { display: flex; align-items: center; gap: 24px; }
+          .mobile-toggle { display: none !important; }
+        }
+        @media (max-width: 1023px) {
+          .mobile-toggle { display: flex !important; }
+        }
+
+        /* Tighter gaps on smaller desktop screens */
+        @media (min-width: 1024px) and (max-width: 1180px) {
+          .desktop-links { gap: 16px; }
+          .nav-link { font-size: 0.82rem; }
+        }
       `}</style>
 
       <header
@@ -244,23 +282,28 @@ const Navbar = () => {
         <nav style={{
           maxWidth: 1280,
           margin: "0 auto",
-          padding: scrolled ? "10px 5%" : "14px 5%",
+          padding: scrolled ? "8px 4%" : "12px 4%",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
           transition: "padding 0.3s",
+          gap: 12,
         }}>
           {/* Logo */}
-          <NavLink to="/" onClick={scrollTop} style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
+          <NavLink
+            to="/"
+            onClick={scrollTop}
+            style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none", flexShrink: 0 }}
+          >
             <img
               src={logo}
               alt="Suktam Technologies Logo"
-              style={{ height: scrolled ? 64 : 70, width: "auto", transition: "height 0.3s" }}
+              style={{ height: scrolled ? 56 : 64, width: "auto", transition: "height 0.3s" }}
             />
           </NavLink>
 
           {/* Desktop links */}
-          <div style={{ display: "flex", alignItems: "center", gap: 28 }} className="hidden lg:flex">
+          <div className="desktop-links">
             {navLinks.map(link => (
               <NavLink
                 key={link.name}
@@ -273,15 +316,39 @@ const Navbar = () => {
             ))}
 
             <DesktopDropdown
-              label="Other Services"
+              label="Odoo Services"
               links={serviceLinks}
               isOpen={odooOpen}
-              onOpen={() => setOdooOpen(true)}
+              onOpen={() => { setOdooOpen(true); setOtherOpen(false); }}
               onClose={() => setOdooOpen(false)}
             />
 
+            <DesktopDropdown
+              label="More Services"
+              links={otherServices}
+              isOpen={otherOpen}
+              onOpen={() => { setOtherOpen(true); setOdooOpen(false); }}
+              onClose={() => setOtherOpen(false)}
+            />
+
+            <a href="/suktam_odoo.pdf" style={{ flexShrink: 0 }}>
+              <button
+                // onClick={() => setIsOpen(false)}
+                style={{
+                  display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+                  background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.3)",
+                  color: "#16A34A", borderRadius: 10, padding: "12px",
+                  fontSize: "0.9rem", fontWeight: 700, cursor: "pointer",
+                  fontFamily: "'Sora', sans-serif",
+                  width: "100%",
+                }}
+              >
+                <FaDownload size={14} /> Brochure
+              </button>
+            </a>
+
             {/* CTA */}
-            <NavLink to="/contact" onClick={scrollTop}>
+            <a href="mailto:contact@suktamtech.com" style={{ flexShrink: 0 }}>
               <motion.button
                 whileHover={{ scale: 1.04, boxShadow: `0 10px 28px ${C.orange}40` }}
                 whileTap={{ scale: 0.97 }}
@@ -289,10 +356,11 @@ const Navbar = () => {
                   display: "flex", alignItems: "center", gap: 7,
                   background: `linear-gradient(135deg, ${C.orange}, ${C.orangeD})`,
                   color: "#fff", border: "none", borderRadius: 9,
-                  padding: "10px 22px", fontSize: "0.88rem", fontWeight: 700,
+                  padding: "10px 18px", fontSize: "0.85rem", fontWeight: 700,
                   cursor: "pointer", fontFamily: "'Sora', sans-serif",
                   boxShadow: `0 4px 16px ${C.orange}35`,
                   position: "relative",
+                  whiteSpace: "nowrap",
                 }}
               >
                 <span style={{
@@ -301,20 +369,21 @@ const Navbar = () => {
                   background: "#22C55E",
                   boxShadow: "0 0 0 2px #fff",
                 }} />
-                Talk to Our Experts
+                Book Free Consultation
               </motion.button>
-            </NavLink>
+            </a>
           </div>
 
           {/* Mobile toggle */}
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden"
+            className="mobile-toggle"
             style={{
               background: "none", border: "none", cursor: "pointer",
               color: C.dark, padding: 6, borderRadius: 8,
-              display: "flex", alignItems: "center", justifyContent: "center",
+              alignItems: "center", justifyContent: "center",
+              flexShrink: 0,
             }}
           >
             <AnimatePresence mode="wait">
@@ -362,7 +431,7 @@ const Navbar = () => {
                 ))}
 
                 <MobileAccordion
-                  label="Other Services"
+                  label="Odoo Services"
                   links={serviceLinks}
                   isOpen={mobileDropdown === "odoo"}
                   onToggle={() => setMobileDropdown(p => p === "odoo" ? null : "odoo")}
@@ -376,22 +445,27 @@ const Navbar = () => {
                 />
 
                 <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 16 }}>
-                  <button
-                    onClick={() => setIsOpen(false)}
-                    style={{
-                      display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-                      background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.3)",
-                      color: "#16A34A", borderRadius: 10, padding: "12px",
-                      fontSize: "0.9rem", fontWeight: 700, cursor: "pointer",
-                      fontFamily: "'Sora', sans-serif",
-                    }}
-                  >
-                    <FaDownload size={14} /> Download Brochure
-                  </button>
+                  <center>
 
-                  <NavLink
-                    to="/contact"
-                    onClick={() => { setIsOpen(false); scrollTop(); }}
+                    <a href="/suktam_odoo.pdf" className="w-full " target="_blank" rel="noopener noreferrer">
+                      <button
+                        // onClick={() => setIsOpen(false)}
+                        style={{
+                          display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+                          background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.3)",
+                          color: "#16A34A", borderRadius: 10, padding: "12px",
+                          fontSize: "0.9rem", fontWeight: 700, cursor: "pointer",
+                          fontFamily: "'Sora', sans-serif",
+                          width: "100%",
+                        }}
+                      >
+                        <FaDownload size={14} /> Download Brochure
+                      </button>
+                    </a>
+                  </center>
+
+                  <a
+                    href="mailto:contact@suktamtech.com"
                     style={{
                       display: "block", textAlign: "center",
                       background: `linear-gradient(135deg, ${C.orange}, ${C.orangeD})`,
@@ -401,8 +475,8 @@ const Navbar = () => {
                       boxShadow: `0 4px 16px ${C.orange}35`,
                     }}
                   >
-                    Talk to Our Experts
-                  </NavLink>
+                    Book Free Consultation
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -411,7 +485,7 @@ const Navbar = () => {
       </header>
 
       {/* Spacer so content doesn't sit under fixed nav */}
-      <div style={{ height: scrolled ? 67 : 75, transition: "height 0.3s" }} />
+      <div style={{ height: scrolled ? 63 : 71, transition: "height 0.3s" }} />
     </>
   );
 };

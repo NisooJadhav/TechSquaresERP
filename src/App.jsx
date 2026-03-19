@@ -51,7 +51,7 @@ function App() {
               element={<OdooImplementation />}
             />
             <Route path="/services/:type" element={<Services />} />
-            <Route path="/contact" element={<Contact />} />
+            {/* <Route path="/contact" element={<Contact />} /> */}
           </Routes>
         </main>
         <Footer />
@@ -59,7 +59,7 @@ function App() {
 
       {/* Floating Action Buttons */}
       <div className="fixed bottom-6 right-4 flex flex-col items-center gap-3 z-50">
-        <a
+        {/* <a
           href="https://wa.me/8208103515"
           target="_blank"
           rel="noopener noreferrer"
@@ -73,7 +73,7 @@ function App() {
           className="bg-sky-800 text-white p-3 rounded-full hover:scale-110 transition"
         >
           <FaPhoneAlt className="text-lg" />
-        </a>
+        </a> */}
 
         {showScroll && (
           <button
