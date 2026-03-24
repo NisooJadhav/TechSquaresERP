@@ -4,7 +4,7 @@
       "category": "Odoo Services",
       "title": "Odoo Migration",
       "subtitle": "Seamlessly migrate your existing ERP system to Odoo with zero data loss and minimal downtime.",
-      "heroImage": "/images/migration.jpg",
+      "heroImage": "/migration.svg",
       "overview": {
         "title": "Hassle-Free Odoo Migration Services",
         "description": "We handle end-to-end migration from legacy systems or older Odoo versions to the latest Odoo release.",
@@ -45,7 +45,7 @@
       "category": "Odoo Services",
       "title": "Odoo Customization",
       "subtitle": "Tailor Odoo to fit your unique business workflows with expert customization services.",
-      "heroImage": "/images/customization.jpg",
+      "heroImage": "/integration.svg",
       "overview": {
         "title": "Custom Odoo Solutions Built for You",
         "description": "We extend and customize Odoo modules to match your exact business processes.",
@@ -86,7 +86,7 @@
       "category": "Odoo Services",
       "title": "Odoo Integration",
       "subtitle": "Connect Odoo seamlessly with your existing tools, platforms, and third-party services.",
-      "heroImage": "/images/integration.jpg",
+      "heroImage": "/integration.svg",
       "overview": {
         "title": "Seamless Odoo Integration Services",
         "description": "We integrate Odoo with payment gateways, eCommerce platforms, CRMs, shipping providers, and more.",
@@ -127,7 +127,7 @@
       "category": "Odoo Services",
       "title": "Odoo Web/App Development",
       "subtitle": "Build powerful web and mobile applications on top of the Odoo platform.",
-      "heroImage": "/images/development.jpg",
+      "heroImage": "/odoo-web.jpg",
       "overview": {
         "title": "Custom Odoo Web & App Development",
         "description": "We develop customer-facing portals, mobile apps, and web applications powered by Odoo.",
@@ -168,7 +168,7 @@
       "category": "Odoo Services",
       "title": "Odoo Training",
       "subtitle": "Empower your team with hands-on Odoo training tailored to your business processes.",
-      "heroImage": "/images/training.jpg",
+      "heroImage": "/training.webp",
       "overview": {
         "title": "Comprehensive Odoo Training Programs",
         "description": "Role-based training programs designed to maximize user adoption and productivity.",
@@ -209,7 +209,7 @@
       "category": "Odoo Services",
       "title": "Support & Maintenance",
       "subtitle": "Keep your Odoo system running smoothly with our dedicated support and maintenance plans.",
-      "heroImage": "/images/support.jpg",
+      "heroImage": "/support.svg",
       "overview": {
         "title": "Reliable Odoo Support & Maintenance",
         "description": "Round-the-clock support plans to keep your Odoo system optimized and issue-free.",
@@ -250,7 +250,7 @@
       "category": "More Services",
       "title": "Web Design & Development",
       "subtitle": "Craft stunning, high-performance websites and web applications that drive results for your business.",
-      "heroImage": "/images/web-development.jpg",
+      "heroImage": "/web-design.avif",
       "overview": {
         "title": "Modern Web Design & Development",
         "description": "We design and develop custom websites and web applications that combine beautiful aesthetics with powerful functionality.",
@@ -291,7 +291,7 @@
       "category": "More Services",
       "title": "Automation Testing",
       "subtitle": "Accelerate your software delivery with robust automated testing that catches bugs before they reach production.",
-      "heroImage": "/images/automation-testing.jpg",
+      "heroImage": "/automation.jpg",
       "overview": {
         "title": "End-to-End Automation Testing Services",
         "description": "We build comprehensive automated test suites that give your team confidence to ship faster with fewer regressions.",
@@ -332,7 +332,7 @@
       "category": "More Services",
       "title": "Digital Marketing",
       "subtitle": "Grow your brand, generate leads, and drive revenue with data-driven digital marketing strategies.",
-      "heroImage": "/images/digital-marketing.jpg",
+      "heroImage": "/digital-marketing.jpg",
       "overview": {
         "title": "Results-Driven Digital Marketing",
         "description": "We craft and execute digital marketing strategies that connect your brand to the right audience at the right time.",
@@ -373,7 +373,7 @@
       "category": "More Services",
       "title": "Graphic Designing",
       "subtitle": "Make your brand unforgettable with compelling visual design that communicates your story.",
-      "heroImage": "/images/graphic-designing.jpg",
+      "heroImage": "/graphic-design.png",
       "overview": {
         "title": "Creative Graphic Design Services",
         "description": "We create visual identities, marketing materials, and digital assets that set your brand apart.",
@@ -414,7 +414,7 @@
       "category": "More Services",
       "title": "RPA",
       "subtitle": "Automate repetitive business processes with Robotic Process Automation and reclaim thousands of hours.",
-      "heroImage": "/images/rpa.jpg",
+      "heroImage": "/rpa.png",
       "overview": {
         "title": "Robotic Process Automation (RPA)",
         "description": "We design, build, and manage RPA bots that automate high-volume, rule-based business processes across any system.",

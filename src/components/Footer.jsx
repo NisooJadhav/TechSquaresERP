@@ -17,7 +17,7 @@ const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
 const footerLinks = {
   services: [
-    { name: "Odoo Consulting", path: "/services/consulting" },
+    { name: "Odoo Migration", path: "/services/migration" },
     { name: "ERP Implementation", path: "/odoo-implementation" },
     { name: "Customization", path: "/services/customization" },
     { name: "Data Migration", path: "/services/migration" },

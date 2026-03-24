@@ -4,7 +4,7 @@
       "id": "migration",
       "title": "Odoo Migration Services",
       "subtitle": "Seamless Migration to Latest Odoo Version",
-      "heroImage": "/migration-banner.svg",
+      "heroImage": "/migration.svg",
       "overview": {
         "title": "Professional Odoo Migration Services",
         "description": "Achieve a smooth migration to the latest Odoo version with our specialized Odoo migration services! Whether you currently use an older Odoo version or any other ERP system, our dedicated Odoo specialists ensure a hassle-free migration to the newest Odoo version.",
@@ -111,7 +111,7 @@
       "id": "customization",
       "title": "Odoo Customization Services",
       "subtitle": "Tailored Solutions for Your Business Needs",
-      "heroImage": "/odoo-integration-banner.svg",
+      "heroImage": "/integration.svg",
       "overview": {
         "title": "Custom Odoo Development Services",
         "description": "Boost efficiency and drive business growth with custom Odoo solutions! We understand that there is no one-size-fits-all approach, and off-the-shelf solutions do not always meet your requirements.",
@@ -218,7 +218,7 @@
       "id": "integration",
       "title": "Odoo Integration Services",
       "subtitle": "Connect Your Business Ecosystem",
-      "heroImage": "/odoo-integration-banner.svg",
+      "heroImage": "/integration.svg",
       "overview": {
         "title": "Seamless Odoo Integration Solutions",
         "description": "Effortlessly connect Odoo with all your business systems and achieve a smooth data flow within your ecosystem! Whether it's an e-commerce website, database, CRM, accounting software, or other business applications, our Odoo experts develop tailored integration solutions.",
