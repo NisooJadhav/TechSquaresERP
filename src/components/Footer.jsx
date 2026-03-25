@@ -39,7 +39,7 @@ const footerLinks = {
 };
 
 const socials = [
-  { icon: FaLinkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/tech-square-erp", color: "#0A66C2" },
+  { icon: FaLinkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/suktamtechnologies", color: "#0A66C2" },
   { icon: FaTwitter, label: "Twitter", href: "#", color: "#1DA1F2" },
   { icon: FaYoutube, label: "YouTube", href: "#", color: "#FF0000" },
   { icon: FaInstagram, label: "Instagram", href: "#", color: "#E1306C" },
