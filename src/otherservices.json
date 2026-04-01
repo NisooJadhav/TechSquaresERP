@@ -125,45 +125,46 @@
     },
     "development": {
       "category": "Odoo Services",
-      "title": "Odoo Web/App Development",
-      "subtitle": "Build powerful web and mobile applications on top of the Odoo platform.",
+      "title": "Odoo Web/OWL Development",
+      "subtitle": "Build modern, reactive Odoo interfaces and web applications powered by the OWL framework.",
       "heroImage": "/odoo-web.jpg",
       "overview": {
-        "title": "Custom Odoo Web & App Development",
-        "description": "We develop customer-facing portals, mobile apps, and web applications powered by Odoo.",
-        "fullDescription": "Leverage Odoo's powerful backend to build modern web portals, PWAs, and mobile applications. Our full-stack team combines Odoo expertise with modern frontend technologies to deliver exceptional digital experiences."
+        "title": "Native Odoo Frontend & Web Development with OWL",
+        "description": "We develop custom Odoo interfaces, portals, and web apps using Odoo's own OWL (Odoo Web Library) framework.",
+        "fullDescription": "OWL is Odoo's component-based JavaScript framework — purpose-built for building reactive, performant UIs inside and on top of Odoo. Our team specialises in OWL component development, custom Odoo website modules, customer portals, and full-stack web applications tightly integrated with your Odoo backend. The result: native-feeling experiences that are fast, maintainable, and upgrade-safe."
       },
-      "technologies": ["OWL", "React", "Flutter", "Python", "PostgreSQL", "REST API"],
+      "technologies": ["OWL Framework", "JavaScript (ES6+)", "QWeb Templates", "Python", "PostgreSQL", "REST API", "Odoo Website Builder"],
       "industries": ["eCommerce", "Healthcare", "Education", "Real Estate", "Logistics"],
       "keyFeatures": [
-        { "icon": "</>", "title": "Odoo Website Builder", "description": "Custom website themes and pages built on Odoo's native website module." },
-        { "icon": "📱", "title": "Mobile App Development", "description": "Native and cross-platform mobile apps connected to your Odoo backend." },
-        { "icon": "🌐", "title": "Customer Portal", "description": "Self-service portals for customers to track orders, invoices, and support tickets." },
-        { "icon": "🛒", "title": "eCommerce Development", "description": "Full-featured online stores built on Odoo eCommerce with custom designs." },
-        { "icon": "📊", "title": "Custom Dashboards", "description": "Interactive dashboards and reporting apps tailored to your KPIs." },
-        { "icon": "🔐", "title": "Vendor/Partner Portals", "description": "Dedicated portals for vendors and partners to collaborate with your business." }
+        { "icon": "🦉", "title": "OWL Component Development", "description": "Build reactive, stateful UI components using Odoo's OWL framework for seamless integration with Odoo's backend." },
+        { "icon": "🌐", "title": "Custom Odoo Website Modules", "description": "Develop bespoke pages, themes, and building blocks on top of Odoo's native website module." },
+        { "icon": "🚪", "title": "Customer & Vendor Portals", "description": "Self-service portals lets customers track orders, invoices, and tickets — or vendors manage POs and deliveries." },
+        { "icon": "🛒", "title": "Odoo eCommerce Development", "description": "Full-featured Odoo eCommerce stores with custom themes, product pages, and payment gateway integration." },
+        { "icon": "📊", "title": "Interactive Dashboards", "description": "Custom OWL-powered dashboards and data visualisation widgets built directly inside your Odoo instance." },
+        { "icon": "📱", "title": "Progressive Web Apps", "description": "PWAs and mobile-optimised web apps powered by Odoo APIs for field teams and external users." }
       ],
       "process": [
-        { "step": "01", "title": "Discovery", "description": "Understand user journeys, business goals, and technical requirements." },
-        { "step": "02", "title": "UI/UX Design", "description": "Create wireframes and high-fidelity designs for approval before development." },
-        { "step": "03", "title": "Development", "description": "Agile sprints with regular builds delivered for your feedback." },
-        { "step": "04", "title": "QA & Testing", "description": "Cross-browser, cross-device testing and performance optimization." },
-        { "step": "05", "title": "Launch & Support", "description": "Production deployment with post-launch monitoring and maintenance." }
+        { "step": "01", "title": "Discovery & Architecture", "description": "Map user journeys, data models, and decide the right approach — OWL components, website module, portal, or external app." },
+        { "step": "02", "title": "UI/UX Design", "description": "Wireframes and high-fidelity mockups designed in Figma, reviewed and approved before any code is written." },
+        { "step": "03", "title": "OWL Development", "description": "Component-by-component development with regular builds, live demos, and iterative feedback." },
+        { "step": "04", "title": "QA & Performance Testing", "description": "Cross-browser and cross-device testing, Odoo upgrade compatibility checks, and load performance validation." },
+        { "step": "05", "title": "Deployment & Handover", "description": "Production deployment on your Odoo instance with full documentation and developer knowledge transfer." }
       ],
       "benefits": [
-        "Modern, responsive designs",
-        "Deeply integrated with Odoo data",
-        "Scalable architecture",
-        "SEO-optimized web applications",
-        "Ongoing maintenance plans available",
-        "Fast time-to-market"
+        "Native Odoo UI — no third-party JS framework lock-in",
+        "Upgrade-safe OWL components following Odoo standards",
+        "Deeply integrated with your existing Odoo data",
+        "Consistent look and feel with the Odoo backend",
+        "Faster development using Odoo's built-in component library",
+        "Ongoing maintenance and feature additions available"
       ],
       "faqs": [
-        { "question": "Can you build a mobile app connected to our Odoo system?", "answer": "Yes, we build Flutter-based cross-platform apps and React Native apps that connect to Odoo via REST APIs." },
-        { "question": "Do you design the UI or just develop?", "answer": "We do both — our team includes UI/UX designers who create full designs before development begins." },
-        { "question": "Can we host the app on our own servers?", "answer": "Absolutely. We support on-premise, cloud (AWS, GCP, Azure), and Odoo.sh hosting options." }
+        { "question": "What is OWL and why use it over React or Vue?", "answer": "OWL (Odoo Web Library) is Odoo's own reactive component framework. Using OWL means your UI is natively compatible with Odoo's rendering engine, reactivity system, and future upgrades — no bridging or workarounds needed." },
+        { "question": "Can you build external websites using OWL?", "answer": "OWL is optimised for within-Odoo development. For external websites or marketing sites, we use Odoo's website module or standalone React/Next.js — whichever fits the requirement." },
+        { "question": "Will OWL components survive Odoo version upgrades?", "answer": "Yes, when built following Odoo's component inheritance and override patterns. We write all components with upgradability in mind and test against the target Odoo version." }
       ]
     },
+
     "training": {
       "category": "Odoo Services",
       "title": "Odoo Training",

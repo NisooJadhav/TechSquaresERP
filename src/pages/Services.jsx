@@ -23,6 +23,30 @@ const Services = () => {
   const [activeTab, setActiveTab] = useState("overview");
   const [activeFaq, setActiveFaq] = useState(null);
 
+  const industryIcon = (name) => {
+    const n = name.toLowerCase();
+    if (n.includes("manufactur"))   return "🏭";
+    if (n.includes("retail"))        return "🛍️";
+    if (n.includes("healthcare") || n.includes("health")) return "🏥";
+    if (n.includes("education") || n.includes("school"))  return "🎓";
+    if (n.includes("logistics") || n.includes("supply"))  return "🚚";
+    if (n.includes("finance") || n.includes("fintech") || n.includes("banking")) return "💹";
+    if (n.includes("real estate") || n.includes("property")) return "🏠";
+    if (n.includes("ecommerce") || n.includes("e-commerce")) return "🛒";
+    if (n.includes("restaurant") || n.includes("f&b") || n.includes("food"))    return "🍽️";
+    if (n.includes("hotel") || n.includes("hospitality"))   return "🏨";
+    if (n.includes("professional") || n.includes("service")) return "💼";
+    if (n.includes("startup"))       return "🚀";
+    if (n.includes("saas") || n.includes("software"))       return "💻";
+    if (n.includes("telecom"))       return "📡";
+    if (n.includes("insurance"))     return "🛡️";
+    if (n.includes("trading"))       return "📈";
+    if (n.includes("pos"))           return "🖥️";
+    if (n.includes("hr") || n.includes("payroll"))          return "👥";
+    if (n.includes("all"))           return "🌐";
+    return "🏢";
+  };
+
   useEffect(() => {
     AOS.init({ duration: 1000 });
     window.scrollTo(0, 0);
@@ -68,11 +92,9 @@ const Services = () => {
           .svc-hero-btns > * { width: 100% !important; justify-content: center !important; padding: 13px 18px !important; font-size: 0.88rem !important; box-sizing: border-box !important; }
 
           /* Tabs */
-          .svc-tabs nav { gap: 0 !important; -webkit-overflow-scrolling: touch; }
-          .svc-tabs nav button { padding: 11px 8px !important; font-size: 0.72rem !important; gap: 0 !important; }
+          .svc-tabs nav { gap: 0 !important; -webkit-overflow-scrolling: touch; justify-content: flex-start !important; }
+          .svc-tabs nav button { padding: 14px 12px !important; font-size: 0.8rem !important; gap: 6px !important; }
           .svc-tabs nav button svg { display: none !important; }
-          /* Remove the mr-2 gap since icon is hidden */
-          .svc-tabs nav button .mr-2 { margin-right: 0 !important; }
 
           /* Content padding */
           .svc-content { padding: 20px 14px !important; }
@@ -261,7 +283,7 @@ const Services = () => {
         style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)", borderBottom: "1px solid #E2E8F0" }}
       >
         <div className="container mx-auto px-4">
-          <nav className="flex space-x-8 overflow-x-auto">
+          <nav className="flex justify-center space-x-2 overflow-x-auto">
             {[
               { id: "overview",  label: "Overview",     icon: FaLightbulb     },
               { id: "features",  label: "Key Features", icon: FaCog           },
@@ -272,15 +294,17 @@ const Services = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className="flex items-center py-4 px-2 border-b-2 font-medium text-sm transition-colors whitespace-nowrap"
+                className="flex items-center py-5 px-6 border-b-2 transition-colors whitespace-nowrap"
                 style={{
                   borderBottomColor: activeTab === tab.id ? "#F97316" : "transparent",
                   color: activeTab === tab.id ? "#F97316" : "#64748B",
                   fontFamily: "'DM Sans', sans-serif",
                   fontWeight: activeTab === tab.id ? 700 : 500,
+                  fontSize: "0.95rem",
+                  gap: 8,
                 }}
               >
-                <tab.icon className="mr-2" />
+                <tab.icon style={{ fontSize: "1rem" }} />
                 {tab.label}
               </button>
             ))}
@@ -313,7 +337,7 @@ const Services = () => {
                 >
                   {serviceData.overview.title}
                 </h2>
-                <p className="text-lg mb-6 leading-relaxed" style={{ color: "#475569" }}>
+                <p className="text-lg mb-6 leading-relaxed" style={{ color: "#333333" }}>
                   {serviceData.overview.description}
                 </p>
                 <p className="leading-relaxed" style={{ color: "#64748B" }}>
@@ -377,19 +401,32 @@ const Services = () => {
               >
                 Industries We Serve
               </h3>
-              <div className="svc-industry-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+              <div className="svc-industry-grid grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
                 {serviceData.industries.map((industry, index) => (
                   <div
                     key={index}
                     className="text-center p-4 rounded-xl transition-all duration-200 hover:-translate-y-1"
                     style={{ border: "1px solid #E2E8F0", background: "#F8FAFC" }}
                   >
-                    <div className="text-2xl mb-2">🏢</div>
-                    <span className="text-sm font-medium" style={{ color: "#475569" }}>
+                    <div className="text-2xl mb-2">{industryIcon(industry)}</div>
+                    <span className="text-sm font-medium" style={{ color: "#333333" }}>
                       {industry}
                     </span>
                   </div>
                 ))}
+                {/* & More card */}
+                <div
+                  className="text-center p-4 rounded-xl transition-all duration-200 hover:-translate-y-1"
+                  style={{
+                    border: "1px dashed rgba(249,115,22,0.4)",
+                    background: "linear-gradient(135deg, rgba(249,115,22,0.05), rgba(37,99,235,0.04))",
+                  }}
+                >
+                  <div className="text-2xl mb-2">✨</div>
+                  <span className="text-sm font-semibold" style={{ color: "#F97316" }}>
+                    &amp; More…
+                  </span>
+                </div>
               </div>
             </div>
           </div>

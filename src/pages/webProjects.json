@@ -1,0 +1,154 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Aban.ae",
+      "category": "Corporate Website",
+      "description": "A sleek corporate website for Aban, delivering a professional online presence with modern design and seamless user experience tailored for their brand identity.",
+      "url": "https://aban.ae",
+      "image": "/web-dev/aban.ae.png",
+      "tags": ["React", "Web Design", "Corporate"],
+      "featured": false
+    },
+    {
+      "id": 2,
+      "title": "BiteRight",
+      "category": "Food & Beverage",
+      "description": "A visually rich food & beverage platform that brings menus to life with vibrant imagery, intuitive ordering experience, and a mouth-watering online presence.",
+      "url": "https://biteright.com.au",
+      "image": "/web-dev/biteright.png",
+      "tags": ["Next.js", "E-Commerce", "Food Tech"],
+      "featured": true
+    },
+    {
+      "id": 3,
+      "title": "BizSavvy",
+      "category": "Business Solutions",
+      "description": "A clean, professional business platform for BizSavvy, showcasing their services with clarity. Designed for conversion with structured content and strong call-to-actions.",
+      "url": "https://bizsavvy.com.au",
+      "image": "/web-dev/bizsavvy.png",
+      "tags": ["React", "Landing Page", "B2B"],
+      "featured": false
+    },
+    {
+      "id": 4,
+      "title": "FeminiStore",
+      "category": "E-Commerce",
+      "description": "An elegant e-commerce storefront for FeminiStore — a fashion-forward platform with curated collections, smooth product browsing, and a modern shopping experience.",
+      "url": "https://feministore.com",
+      "image": "/web-dev/feministore.png",
+      "tags": ["Shopify", "E-Commerce", "Fashion"],
+      "featured": true
+    },
+    {
+      "id": 5,
+      "title": "Gavgada",
+      "category": "Marketplace",
+      "description": "A dynamic marketplace platform built for Gavgada, enabling buyers and sellers to connect effortlessly with a modern UI and optimized listing management.",
+      "url": "https://gavgada.com",
+      "image": "/web-dev/gavgada.png",
+      "tags": ["React", "Marketplace", "Custom Dev"],
+      "featured": false
+    },
+    {
+      "id": 6,
+      "title": "Logos Design Portfolio",
+      "category": "Design Showcase",
+      "description": "A curated logo design showcase — presenting brand identities crafted for clients across industries, with a clean grid layout that puts the work front and center.",
+      "url": "#",
+      "image": "/web-dev/logos.png",
+      "tags": ["Portfolio", "Branding", "UI Design"],
+      "featured": false
+    },
+    {
+      "id": 7,
+      "title": "Manotron Industries",
+      "category": "Industrial / Manufacturing",
+      "description": "A comprehensive industrial website for Manotron Industries, projecting credibility and capability with detailed product listings, company profile, and inquiry workflows.",
+      "url": "https://manotron-industries.com",
+      "image": "/web-dev/manotron-industries.png",
+      "tags": ["WordPress", "Industrial", "B2B"],
+      "featured": true
+    },
+    {
+      "id": 8,
+      "title": "Mentorius",
+      "category": "EdTech / Mentorship",
+      "description": "An edtech platform for Mentorius, connecting students with expert mentors through a smooth booking experience, rich mentor profiles, and engaging UI.",
+      "url": "https://mentorius.com",
+      "image": "/web-dev/mentorius.png",
+      "tags": ["React", "EdTech", "SaaS"],
+      "featured": true
+    },
+    {
+      "id": 9,
+      "title": "OnBrew",
+      "category": "Beverage / Lifestyle",
+      "description": "A lifestyle-centric web presence for OnBrew, capturing the craft and culture of brewing with immersive visuals, brand storytelling, and an inviting user journey.",
+      "url": "https://onbrew.com.au",
+      "image": "/web-dev/onbrew.png",
+      "tags": ["Next.js", "Lifestyle", "Branding"],
+      "featured": false
+    },
+    {
+      "id": 10,
+      "title": "Developer Portfolio",
+      "category": "Personal Portfolio",
+      "description": "A full-featured developer portfolio showcasing skills, projects, and experience in a polished, modern layout designed to impress recruiters and clients alike.",
+      "url": "#",
+      "image": "/web-dev/portfolio.png",
+      "tags": ["React", "Portfolio", "Personal Brand"],
+      "featured": false
+    },
+    {
+      "id": 11,
+      "title": "Project Management App – v1",
+      "category": "SaaS / Productivity",
+      "description": "First iteration of a task and project management SaaS product, featuring kanban boards, team collaboration tools, and clean dashboard views for productivity.",
+      "url": "#",
+      "image": "/web-dev/proj-mgt-1.png",
+      "tags": ["React", "SaaS", "Productivity"],
+      "featured": false
+    },
+    {
+      "id": 12,
+      "title": "Project Management App – v2",
+      "category": "SaaS / Productivity",
+      "description": "Enhanced version of the project management platform with improved UI/UX, real-time updates, advanced reporting, and a more intuitive workflow design.",
+      "url": "#",
+      "image": "/web-dev/proj-mgt-2.png",
+      "tags": ["React", "SaaS", "Dashboard"],
+      "featured": false
+    },
+    {
+      "id": 13,
+      "title": "TechSquare ERP",
+      "category": "ERP / Enterprise",
+      "description": "A custom web portal for TechSquare ERP, offering an integrated enterprise resource planning interface with modules for finance, HR, inventory, and reporting.",
+      "url": "https://techsquareerp.com",
+      "image": "/web-dev/techsquareerp.png",
+      "tags": ["Odoo", "ERP", "Enterprise"],
+      "featured": true
+    },
+    {
+      "id": 14,
+      "title": "TradeSwift",
+      "category": "Fintech / Trading",
+      "description": "A fintech platform for TradeSwift, built for speed and clarity — delivering real-time trading insights, clean dashboards, and a professional financial interface.",
+      "url": "https://tradeswift.com.au",
+      "image": "/web-dev/tradeswift.png",
+      "tags": ["React", "FinTech", "Dashboard"],
+      "featured": true
+    },
+    {
+      "id": 15,
+      "title": "WishnPearl",
+      "category": "Jewellery / Luxury",
+      "description": "A luxury jewellery e-commerce experience for WishnPearl — combining elegant aesthetics, high-quality product photography, and refined UX to reflect their premium brand.",
+      "url": "https://wishnpearl.com",
+      "image": "/web-dev/wishnpearl.png",
+      "tags": ["Shopify", "Luxury", "E-Commerce"],
+      "featured": true
+    }
+  ]
+}

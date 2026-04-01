@@ -1,546 +1,569 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, useMotionValue, useTransform, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronDown, Zap, TrendingUp, Shield, Users, CheckCircle2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Play, CheckCircle, ChevronRight, Sparkles } from "lucide-react";
 
-// ── Brand tokens (extracted from Suktam logo)
-// Orange: #F97316 → #EA580C | Blue: #1B3A7A → #1E40AF | Sky: #0EA5E9
-const C = {
-  orange: "#F97316",
-  orangeD: "#EA580C",
-  blue: "#1B3A7A",
-  blueM: "#1E40AF",
-  blueL: "#2563EB",
-  sky: "#0EA5E9",
-  dark: "#0A0F1E",
-  darkM: "#0D1526",
-  white: "#FFFFFF",
+// ─── Brand Tokens ─────────────────────────────────────────────────────────────
+const T = {
+  navy:        "#1A2F6E",
+  navyLight:   "#2442A0",
+  orange:      "#F47B20",
+  orangeLight: "#FEF0E4",
+  sky:         "#EBF4FF",
+  white:       "#FFFFFF",
+  gray50:      "#F8F9FC",
+  gray100:     "#EEF1F8",
+  gray400:     "#9AA3BE",
+  gray600:     "#5A6482",
+  gray900:     "#151C35",
 };
 
-// ── Animated orbital ring SVG
-const OrbitalRing = ({ size = 300, delay = 0, duration = 18, clockwise = true }) => (
-  <motion.div
-    style={{ width: size, height: size, position: "absolute" }}
-    animate={{ rotate: clockwise ? 360 : -360 }}
-    transition={{ duration, repeat: Infinity, ease: "linear", delay }}
-    className="pointer-events-none"
-  >
-    <svg viewBox="0 0 300 300" width="100%" height="100%">
-      <ellipse cx="150" cy="150" rx="145" ry="60"
-        fill="none" stroke="url(#orb)" strokeWidth="1" strokeDasharray="8 6" opacity="0.35"
-        transform="rotate(-20, 150, 150)" />
-      <defs>
-        <linearGradient id="orb" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor={C.orange} stopOpacity="0" />
-          <stop offset="50%" stopColor={C.orange} stopOpacity="1" />
-          <stop offset="100%" stopColor={C.sky} stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      <circle cx="295" cy="150" r="5" fill={C.orange} />
-    </svg>
-  </motion.div>
-);
+const caps = [
+  "Odoo ERP Implementation",
+  "GST & BAS Compliance",
+  "Custom Web Development",
+  "Mobile App Development",
+  "ERP System Integration",
+  "Business Process Automation",
+];
 
-// ── Floating particle
-const Particle = ({ x, y, delay, size = 3, color }) => (
-  <motion.div
-    style={{ position: "absolute", left: `${x}%`, top: `${y}%`, width: size, height: size, borderRadius: "50%", background: color, filter: `blur(${size > 3 ? 1 : 0}px)` }}
-    animate={{ y: [0, -30, 0], opacity: [0.2, 0.8, 0.2] }}
-    transition={{ duration: 4 + Math.random() * 3, repeat: Infinity, delay, ease: "easeInOut" }}
-  />
-);
-
-// ── Dashboard mockup card
-const DashboardMockup = () => {
-  const modules = [
-    { label: "Sales", icon: "📈", color: "#F97316" },
-    { label: "CRM", icon: "🤝", color: "#0EA5E9" },
-    { label: "Inventory", icon: "📦", color: "#22C55E" },
-    { label: "HR", icon: "👥", color: "#A855F7" },
-    { label: "Finance", icon: "💰", color: "#F59E0B" },
-    { label: "Projects", icon: "🚀", color: "#1E40AF" },
-    { label: "Purchase", icon: "🛒", color: "#EF4444" },
-    { label: "Reports", icon: "📊", color: "#06B6D4" },
-  ];
-  const bars = [40, 65, 45, 80, 55, 90, 70, 60, 85, 50, 75, 95];
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 40, rotateY: -12 }}
-      animate={{ opacity: 1, y: 0, rotateY: 0 }}
-      transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      style={{
-        background: "linear-gradient(145deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%)",
-        border: "1px solid rgba(255,255,255,0.1)",
-        borderRadius: 24,
-        padding: 24,
-        backdropFilter: "blur(20px)",
-        boxShadow: "0 40px 100px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08)",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      {/* Inner glow */}
-      <div style={{
-        position: "absolute", top: -60, right: -60, width: 200, height: 200,
-        background: "radial-gradient(circle, rgba(249,115,22,0.2) 0%, transparent 70%)",
-        borderRadius: "50%", pointerEvents: "none",
-      }} />
-
-      {/* Window bar */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18 }}>
-        <div style={{ display: "flex", gap: 6 }}>
-          {["#FF5F57", "#FEBC2E", "#28C840"].map((c, i) => (
-            <div key={i} style={{ width: 10, height: 10, borderRadius: "50%", background: c }} />
-          ))}
-        </div>
-        <div style={{
-          background: "rgba(255,255,255,0.06)", padding: "3px 12px", borderRadius: 20,
-          color: "rgba(255,255,255,0.5)", fontSize: 11, fontFamily: "monospace",
-        }}>
-          odoo.suktam.com
-        </div>
-        <div style={{ display: "flex", gap: 4 }}>
-          {[C.orange, C.sky, "#22C55E"].map((c, i) => (
-            <div key={i} style={{ width: 6, height: 6, borderRadius: "50%", background: c, animation: `pulse ${1.5 + i * 0.3}s infinite` }} />
-          ))}
-        </div>
-      </div>
-
-      {/* KPI row */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, marginBottom: 14 }}>
-        {[
-          { label: "Revenue", val: "₹2.4Cr", up: "+23%", color: C.orange },
-          { label: "Orders", val: "1,847", up: "+18%", color: C.sky },
-          { label: "Efficiency", val: "+47%", up: "↗ Live", color: "#22C55E" },
-        ].map((k, i) => (
-          <motion.div key={i}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.8 + i * 0.1 }}
-            style={{
-              background: `linear-gradient(135deg, ${k.color}20, ${k.color}08)`,
-              border: `1px solid ${k.color}30`, borderRadius: 12, padding: "10px 12px",
-            }}
-          >
-            <div style={{ color: "rgba(255,255,255,0.5)", fontSize: 10, marginBottom: 4 }}>{k.label}</div>
-            <div style={{ color: "#fff", fontSize: 17, fontWeight: 700, fontFamily: "'Clash Display', 'Sora', sans-serif" }}>{k.val}</div>
-            <div style={{ color: k.color, fontSize: 10, fontWeight: 600 }}>{k.up}</div>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Chart */}
-      <div style={{
-        background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)",
-        borderRadius: 12, padding: "12px 14px", marginBottom: 14,
-      }}>
-        <div style={{ color: "rgba(255,255,255,0.4)", fontSize: 10, marginBottom: 8 }}>MONTHLY GROWTH</div>
-        <div style={{ display: "flex", alignItems: "flex-end", gap: 4, height: 52 }}>
-          {bars.map((h, i) => (
-            <motion.div key={i}
-              initial={{ scaleY: 0 }}
-              animate={{ scaleY: 1 }}
-              transition={{ delay: 1 + i * 0.05, ease: "easeOut" }}
-              style={{
-                flex: 1, height: `${h}%`, borderRadius: "3px 3px 0 0", transformOrigin: "bottom",
-                background: i === 11
-                  ? `linear-gradient(to top, ${C.orange}, #FCD34D)`
-                  : `linear-gradient(to top, ${C.blueL}, ${C.sky})`,
-                opacity: i === 11 ? 1 : 0.6,
-              }}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Module grid */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 8 }}>
-        {modules.map((m, i) => (
-          <motion.div key={i}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2 + i * 0.05 }}
-            whileHover={{ scale: 1.06, background: "rgba(255,255,255,0.12)" }}
-            style={{
-              background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.07)",
-              borderRadius: 10, padding: "8px 4px", textAlign: "center", cursor: "pointer",
-              transition: "background 0.2s",
-            }}
-          >
-            <div style={{ fontSize: 16, marginBottom: 3 }}>{m.icon}</div>
-            <div style={{ color: "rgba(255,255,255,0.6)", fontSize: 9, fontWeight: 600 }}>{m.label}</div>
-          </motion.div>
-        ))}
-      </div>
-    </motion.div>
-  );
-};
-
-// ── Main Hero
-const TechSquareHero = () => {
-  const [mounted, setMounted] = useState(false);
-  const [currentFeature, setCurrentFeature] = useState(0);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const bgX = useTransform(mouseX, [0, window.innerWidth || 1200], [-20, 20]);
-  const bgY = useTransform(mouseY, [0, window.innerHeight || 800], [-20, 20]);
-
-  const features = [
-    { icon: Zap, text: "End-to-End Implementation", color: C.orange },
-    { icon: TrendingUp, text: "Strong Odoo ERP Expertise", color: C.sky },
-    { icon: Shield, text: "Customization & Integration Specialists", color: "#22C55E" },
-    { icon: Users, text: "Client-First Delivery Approach", color: "#A855F7" },
-  ];
-
-  const particles = Array.from({ length: 22 }, (_, i) => ({
-    x: Math.random() * 100, y: Math.random() * 100,
-    delay: i * 0.3, size: Math.random() * 3 + 1,
-    color: i % 3 === 0 ? C.orange : i % 3 === 1 ? C.sky : "rgba(255,255,255,0.4)",
-  }));
+// ─── Animated number ──────────────────────────────────────────────────────────
+const AnimNum = ({ to, suffix = "", duration = 1400 }) => {
+  const [val, setVal] = useState(0);
+  const [fired, setFired] = useState(false);
+  const ref = useRef(null);
 
   useEffect(() => {
-    setMounted(true);
-    const iv = setInterval(() => setCurrentFeature(p => (p + 1) % 4), 2800);
-    return () => clearInterval(iv);
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting && !fired) setFired(true); },
+      { threshold: 0.5 }
+    );
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, [fired]);
+
+  useEffect(() => {
+    if (!fired) return;
+    let start = null;
+    const step = (ts) => {
+      if (!start) start = ts;
+      const p = Math.min((ts - start) / duration, 1);
+      setVal(Math.floor((1 - Math.pow(1 - p, 3)) * to));
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [fired, to, duration]);
+
+  return <span ref={ref}>{val}{suffix}</span>;
+};
+
+// ─── Dashboard visual ─────────────────────────────────────────────────────────
+const Dashboard = () => {
+  const bars = [42, 58, 51, 73, 62, 88, 70, 82, 91, 77, 85, 96];
+  const [active, setActive] = useState(11);
+
+  useEffect(() => {
+    const t = setInterval(() => setActive(p => (p + 1) % 12), 1100);
+    return () => clearInterval(t);
   }, []);
 
-  const handleMouse = (e) => {
-    mouseX.set(e.clientX);
-    mouseY.set(e.clientY);
-  };
-
   return (
-    <section
-      onMouseMove={handleMouse}
-      style={{
-        minHeight: "100vh",
-        background: `radial-gradient(ellipse 80% 60% at 50% -10%, rgba(27,58,122,0.9) 0%, ${C.dark} 65%)`,
-        position: "relative",
-        overflow: "hidden",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        fontFamily: "'Sora', 'DM Sans', sans-serif",
-      }}
-    >
-      {/* ── Ambient blobs ── */}
-      <motion.div style={{ x: bgX, y: bgY, position: "absolute", inset: 0, pointerEvents: "none" }}>
-        <div style={{
-          position: "absolute", top: "15%", left: "8%", width: 420, height: 420,
-          background: `radial-gradient(circle, ${C.orange}18 0%, transparent 70%)`,
-          borderRadius: "50%", filter: "blur(40px)",
-        }} />
-        <div style={{
-          position: "absolute", bottom: "10%", right: "5%", width: 500, height: 500,
-          background: `radial-gradient(circle, ${C.blueL}20 0%, transparent 70%)`,
-          borderRadius: "50%", filter: "blur(50px)",
-        }} />
-        <div style={{
-          position: "absolute", top: "50%", left: "40%", width: 300, height: 300,
-          background: `radial-gradient(circle, ${C.sky}12 0%, transparent 70%)`,
-          borderRadius: "50%", filter: "blur(30px)",
-        }} />
-      </motion.div>
-
-      {/* ── Grid texture ── */}
+    <div style={{
+      background: T.white,
+      borderRadius: 20,
+      boxShadow: "0 24px 64px rgba(26,47,110,0.13), 0 4px 16px rgba(26,47,110,0.07)",
+      overflow: "hidden",
+      border: `1px solid ${T.gray100}`,
+      width: "100%",
+    }}>
+      {/* Top bar */}
       <div style={{
-        position: "absolute", inset: 0, pointerEvents: "none",
-        backgroundImage: `
-          linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)
-        `,
-        backgroundSize: "60px 60px",
-      }} />
-
-      {/* ── Particles ── */}
-      {mounted && particles.map((p, i) => <Particle key={i} {...p} />)}
-
-      {/* ── Orbital rings (desktop) ── */}
-      <div style={{ position: "absolute", right: "8%", top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }}>
-        <OrbitalRing size={480} delay={0} duration={22} clockwise={true} />
-        <OrbitalRing size={340} delay={0.5} duration={16} clockwise={false} />
-        <OrbitalRing size={200} delay={1} duration={10} clockwise={true} />
-      </div>
-
-      {/* ── Main content ── */}
-      <div style={{
-        position: "relative", zIndex: 10,
-        display: "grid", gridTemplateColumns: "1fr 1fr",
-        gap: 48, alignItems: "center",
-        maxWidth: 1280, margin: "0 auto",
-        padding: "100px 5% 80px",
-        width: "100%",
-      }}
-      className="hero-grid"
-      >
-        {/* LEFT */}
-        <div>
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            style={{
-              display: "inline-flex", alignItems: "center", gap: 8,
-              background: "rgba(249,115,22,0.12)", border: "1px solid rgba(249,115,22,0.3)",
-              padding: "6px 16px", borderRadius: 30, marginBottom: 24,
-            }}
-          >
-            <motion.span
-              animate={{ scale: [1, 1.4, 1], opacity: [1, 0.6, 1] }}
-              transition={{ duration: 1.8, repeat: Infinity }}
-              style={{ width: 7, height: 7, borderRadius: "50%", background: C.orange, display: "inline-block" }}
-            />
-            <span style={{ color: C.orange, fontSize: 12, fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>
-              14+ Years of ERP Excellence
-            </span>
-          </motion.div>
-
-          {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            style={{
-              fontSize: "clamp(2.4rem, 4.5vw, 3.8rem)",
-              fontWeight: 800, lineHeight: 1.1,
-              color: "#fff", marginBottom: 8,
-              fontFamily: "'Sora', sans-serif",
-            }}
-          >
-            Transform Your
-            <br />Business with{" "}
-            <span style={{
-              background: `linear-gradient(135deg, ${C.orange} 0%, #FCD34D 50%, ${C.sky} 100%)`,
-              WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-            }}>
-              Expert
-              <br />ERP Solutions
-            </span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.35 }}
-            style={{
-              color: "rgba(255,255,255,0.62)", fontSize: "1.05rem",
-              lineHeight: 1.75, maxWidth: 480, margin: "16px 0 32px",
-            }}
-          >
-            Suktam Technologies helps businesses streamline operations, gain real-time visibility,
-            and scale efficiently with{" "}
-            <span style={{ color: C.sky, fontWeight: 600 }}>Odoo ERP</span>{" "}
-            implementation, customization, and automation.
-          </motion.p>
-
-          {/* Rotating feature pill */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.45 }}
-            style={{
-              display: "flex", alignItems: "center", gap: 12,
-              background: "rgba(255,255,255,0.05)", backdropFilter: "blur(10px)",
-              border: "1px solid rgba(255,255,255,0.1)",
-              borderRadius: 14, padding: "12px 18px", marginBottom: 28,
-              minWidth: 280, maxWidth: 380,
-            }}
-          >
-            <AnimatePresence mode="wait">
-              <motion.div key={currentFeature}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.35 }}
-                style={{ display: "flex", alignItems: "center", gap: 10 }}
-              >
-                {React.createElement(features[currentFeature].icon, {
-                  size: 20, color: features[currentFeature].color,
-                })}
-                <span style={{ color: "#fff", fontWeight: 600, fontSize: "0.9rem" }}>
-                  {features[currentFeature].text}
-                </span>
-              </motion.div>
-            </AnimatePresence>
-          </motion.div>
-
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.55 }}
-            style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 40 }}
-          >
-            <a href="mailto:contact@suktamtech.com">
-            <motion.button
-              whileHover={{ scale: 1.04, boxShadow: `0 16px 40px ${C.orange}50` }}
-              whileTap={{ scale: 0.97 }}
-              style={{
-                display: "flex", alignItems: "center", gap: 8,
-                background: `linear-gradient(135deg, ${C.orange}, ${C.orangeD})`,
-                color: "#fff", border: "none", borderRadius: 12,
-                padding: "13px 26px", fontSize: "0.92rem", fontWeight: 700,
-                cursor: "pointer", fontFamily: "inherit",
-                boxShadow: `0 8px 28px ${C.orange}40`,
-              }}
-            >
-              Book Free Consultation
-              <ArrowRight size={16} />
-            </motion.button>
-            </a>
-
-            <motion.button
-              whileHover={{ scale: 1.04, background: "rgba(255,255,255,0.1)" }}
-              whileTap={{ scale: 0.97 }}
-              style={{
-                display: "flex", alignItems: "center", gap: 8,
-                background: "rgba(255,255,255,0.06)", backdropFilter: "blur(10px)",
-                color: "#fff", border: "1px solid rgba(255,255,255,0.18)",
-                borderRadius: 12, padding: "13px 26px",
-                fontSize: "0.92rem", fontWeight: 600, cursor: "pointer", fontFamily: "inherit",
-              }}
-            >
-              Get Free Trial
-            </motion.button>
-          </motion.div>
-
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7 }}
-            style={{ display: "flex", gap: 20, flexWrap: "wrap" }}
-          >
-            {[
-              { val: "14+", label: "Years Experience" },
-              { val: "Global", label: "ERP Delivery" },
-              { val: "24/7", label: "Support Coverage" },
-            ].map((s, i) => (
-              <motion.div key={i}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.8 + i * 0.1 }}
-                style={{
-                  display: "flex", alignItems: "center", gap: 8,
-                  background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)",
-                  borderRadius: 30, padding: "7px 16px",
-                }}
-              >
-                <CheckCircle2 size={14} color={C.orange} />
-                <span style={{ fontFamily: "'Sora', sans-serif", fontWeight: 800, color: "#fff", fontSize: "0.95rem" }}>{s.val}</span>
-                <span style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.78rem" }}>{s.label}</span>
-              </motion.div>
-            ))}
-          </motion.div>
+        background: T.navy,
+        padding: "14px 20px",
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+      }}>
+        <div style={{ display: "flex", gap: 6 }}>
+          {["#FF5F57","#FEBC2E","#28C840"].map((c, i) => (
+            <div key={i} style={{ width: 9, height: 9, borderRadius: "50%", background: c }} />
+          ))}
         </div>
-
-        {/* RIGHT — Dashboard */}
-        <div style={{ position: "relative" }}>
-          {/* Glow behind card */}
-          <div style={{
-            position: "absolute", inset: -40,
-            background: `radial-gradient(ellipse, ${C.blueM}30 0%, transparent 70%)`,
-            filter: "blur(30px)", pointerEvents: "none",
-          }} />
-          <DashboardMockup />
-
-          {/* Floating badge TL */}
+        <div style={{
+          background: "rgba(255,255,255,0.1)", borderRadius: 20,
+          padding: "3px 14px", color: "rgba(255,255,255,0.6)",
+          fontSize: "0.68rem", fontFamily: "monospace",
+        }}>
+          suktam.odoo.com
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.4 }}
-            animate2={{ y: [0, -6, 0] }}
-            style={{
-              position: "absolute", top: -18, left: -24,
-              background: "#fff", borderRadius: 12, padding: "8px 14px",
-              display: "flex", alignItems: "center", gap: 8,
-              boxShadow: "0 8px 28px rgba(0,0,0,0.25)",
-            }}
-          >
-            <div style={{ width: 32, height: 32, borderRadius: 8, background: `linear-gradient(135deg, ${C.orange}, #FCD34D)`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16 }}>⚡</div>
-            <div>
-              <div style={{ fontSize: 9, color: "#94A3B8", fontWeight: 600 }}>EFFICIENCY</div>
-              <div style={{ fontSize: 15, fontWeight: 800, color: C.dark, fontFamily: "'Sora', sans-serif" }}>+47%</div>
-            </div>
-          </motion.div>
-
-          {/* Floating badge BR */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.6 }}
-            style={{
-              position: "absolute", bottom: -18, right: -20,
-              background: "#fff", borderRadius: 12, padding: "8px 14px",
-              display: "flex", alignItems: "center", gap: 8,
-              boxShadow: "0 8px 28px rgba(0,0,0,0.25)",
-            }}
-          >
-            <div style={{ width: 32, height: 32, borderRadius: 8, background: `linear-gradient(135deg, ${C.blueM}, ${C.sky})`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16 }}>🌐</div>
-            <div>
-              <div style={{ fontSize: 9, color: "#94A3B8", fontWeight: 600 }}>GLOBAL USERS</div>
-              <div style={{ fontSize: 15, fontWeight: 800, color: C.dark, fontFamily: "'Sora', sans-serif" }}>10K+</div>
-            </div>
-          </motion.div>
+            animate={{ opacity: [1, 0.3, 1] }}
+            transition={{ duration: 1.4, repeat: Infinity }}
+            style={{ width: 6, height: 6, borderRadius: "50%", background: "#22C55E" }}
+          />
+          <span style={{ fontSize: "0.62rem", color: "rgba(255,255,255,0.5)" }}>Live</span>
         </div>
       </div>
 
-      {/* ── Trust band ── */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1 }}
-        style={{
-          position: "relative", zIndex: 10,
-          borderTop: "1px solid rgba(255,255,255,0.07)",
-          background: "rgba(255,255,255,0.03)",
-          backdropFilter: "blur(10px)",
-          padding: "24px 5%",
-          display: "flex", justifyContent: "center",
-          gap: 48, flexWrap: "wrap",
-        }}
-      >
-        {[
-          { val: "14+", label: "Years on the Market", icon: "🏆" },
-          { val: "ERP Experts", label: "Team Members", icon: "👥" },
-          { val: "Global", label: "Satisfaction Rate", icon: "⭐" },
-          { val: "24/7", label: "Senior Specialists", icon: "🎯" },
-        ].map((s, i) => (
-          <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <span style={{ fontSize: 22 }}>{s.icon}</span>
-            <div>
-              <div style={{ fontFamily: "'Sora', sans-serif", fontWeight: 800, color: "#fff", fontSize: "1.25rem" }}>{s.val}</div>
-              <div style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.78rem" }}>{s.label}</div>
-            </div>
+      <div style={{ padding: "20px" }}>
+        {/* KPI strip */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, marginBottom: 16 }}>
+          {[
+            { label: "Revenue",  val: "A$2.4M", up: "+23%",  color: T.orange },
+            { label: "Orders",   val: "1,847",  up: "+18%",  color: T.navyLight },
+            { label: "GST Filed",val: "100%",   up: "✓ ATO", color: "#16A34A" },
+          ].map((k, i) => (
+            <motion.div key={i}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 + i * 0.1 }}
+              style={{
+                background: T.gray50,
+                border: `1px solid ${T.gray100}`,
+                borderRadius: 12, padding: "12px",
+                borderBottom: `3px solid ${k.color}`,
+              }}
+            >
+              <div style={{ fontSize: "0.6rem", color: T.gray800, marginBottom: 5, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>{k.label}</div>
+              <div style={{ fontWeight: 800, fontSize: "1rem", color: T.gray900, fontFamily: "'Outfit', sans-serif", lineHeight: 1 }}>{k.val}</div>
+              <div style={{ color: k.color, fontSize: "0.62rem", fontWeight: 700, marginTop: 4 }}>{k.up}</div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bar chart */}
+        <div style={{
+          background: T.gray50, borderRadius: 12,
+          padding: "14px", marginBottom: 14,
+          border: `1px solid ${T.gray100}`,
+        }}>
+          <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 10 }}>
+            <span style={{ fontSize: "0.62rem", color: T.gray800, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.07em" }}>Monthly Growth</span>
+            <span style={{ fontSize: "0.62rem", color: T.orange, fontWeight: 700 }}>+34% YoY ↑</span>
           </div>
-        ))}
-      </motion.div>
+          <div style={{ display: "flex", alignItems: "flex-end", gap: 5, height: 52 }}>
+            {bars.map((h, i) => (
+              <motion.div key={i}
+                initial={{ scaleY: 0 }}
+                animate={{ scaleY: 1 }}
+                transition={{ delay: 0.6 + i * 0.04, ease: "easeOut" }}
+                style={{
+                  flex: 1, height: `${h}%`,
+                  borderRadius: "3px 3px 0 0",
+                  transformOrigin: "bottom",
+                  background: i === active
+                    ? `linear-gradient(to top, ${T.orange}, #FDE68A)`
+                    : `linear-gradient(to top, ${T.navy}50, ${T.navyLight}80)`,
+                  transition: "background 0.35s ease",
+                }}
+              />
+            ))}
+          </div>
+        </div>
 
-      {/* Scroll cue */}
-      {/* <motion.div
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        style={{
-          position: "absolute", bottom: 32, left: "50%", transform: "translateX(-50%)",
-          display: "flex", flexDirection: "column", alignItems: "center", gap: 4,
-          color: "rgba(255,255,255,0.3)", fontSize: 11, zIndex: 10,
-        }}
-      >
-        <span style={{ letterSpacing: "0.1em" }}>SCROLL</span>
-        <ChevronDown size={16} />
-      </motion.div> */}
-
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap');
-        @keyframes pulse { 0%,100%{opacity:0.5;transform:scale(1)} 50%{opacity:1;transform:scale(1.3)} }
-        @media(max-width:900px){
-          .hero-grid{grid-template-columns:1fr!important;padding-top:80px!important}
-          .hero-grid>div:last-child{display:none}
-        }
-      `}</style>
-    </section>
+        {/* Module chips */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 7 }}>
+          {[
+            { n: "Accounting", c: T.orange },
+            { n: "Inventory",  c: T.navyLight },
+            { n: "CRM",        c: "#7C3AED" },
+            { n: "GST / BAS",  c: "#16A34A" },
+            { n: "Payroll",    c: "#DB2777" },
+            { n: "Projects",   c: "#0EA5E9" },
+          ].map((m, i) => (
+            <div key={i} style={{
+              background: `${m.c}12`,
+              border: `1px solid ${m.c}30`,
+              borderRadius: 20, padding: "4px 11px",
+              fontSize: "0.63rem", color: m.c, fontWeight: 600,
+            }}>
+              {m.n}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default TechSquareHero;
+// ─── Hero ─────────────────────────────────────────────────────────────────────
+const Hero = () => {
+  const [capIdx, setCapIdx] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => setCapIdx(p => (p + 1) % caps.length), 2600);
+    return () => clearInterval(t);
+  }, []);
+
+  return (
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap');
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        .h-btn-primary {
+          display: inline-flex; align-items: center; gap: 9px;
+          background: ${T.orange}; color: #fff;
+          border: none; border-radius: 8px;
+          padding: 14px 26px; font-size: 0.9rem; font-weight: 700;
+          cursor: pointer; font-family: 'Outfit', sans-serif;
+          box-shadow: 0 6px 24px ${T.orange}45;
+          transition: all 0.22s ease; text-decoration: none; white-space: nowrap;
+        }
+        .h-btn-primary:hover { background: #E06510; transform: translateY(-2px); box-shadow: 0 12px 32px ${T.orange}50; }
+
+        .h-btn-ghost {
+          display: inline-flex; align-items: center; gap: 9px;
+          background: transparent; color: ${T.navy};
+          border: 1.5px solid ${T.gray100}; border-radius: 8px;
+          padding: 13px 24px; font-size: 0.9rem; font-weight: 600;
+          cursor: pointer; font-family: 'Outfit', sans-serif;
+          transition: all 0.22s ease; text-decoration: none; white-space: nowrap;
+        }
+        .h-btn-ghost:hover { border-color: ${T.navy}40; background: ${T.gray50}; }
+
+        @media (max-width: 980px) {
+          .h-grid  { grid-template-columns: 1fr !important; }
+          .h-right { display: none !important; }
+          .h-head  { font-size: clamp(2.2rem, 8vw, 3.2rem) !important; }
+          .h-outer { padding: 90px 6% 60px !important; }
+        }
+      `}</style>
+
+      <section style={{
+        background: T.white,
+        position: "relative",
+        overflow: "hidden",
+        fontFamily: "'Outfit', sans-serif",
+      }}>
+
+        {/* ── Background decoration ── */}
+        <div style={{ position: "absolute", inset: 0, pointerEvents: "none", overflow: "hidden" }}>
+          <div style={{
+            position: "absolute", top: -160, right: -120,
+            width: 720, height: 720,
+            background: `radial-gradient(circle, ${T.sky} 0%, transparent 68%)`,
+            borderRadius: "50%",
+          }} />
+          <div style={{
+            position: "absolute", bottom: -80, left: -80,
+            width: 360, height: 360,
+            background: `radial-gradient(circle, ${T.orangeLight} 0%, transparent 68%)`,
+            borderRadius: "50%",
+          }} />
+          <div style={{
+            position: "absolute", inset: 0,
+            backgroundImage: `
+              linear-gradient(${T.gray100} 1px, transparent 1px),
+              linear-gradient(90deg, ${T.gray100} 1px, transparent 1px)
+            `,
+            backgroundSize: "52px 52px",
+            opacity: 0.5,
+          }} />
+          <svg style={{ position: "absolute", top: 0, right: 0, width: 420, height: 420, opacity: 0.035 }} viewBox="0 0 420 420">
+            {[0,1,2,3,4,5].map(i => (
+              <line key={i} x1={420} y1={i * 70} x2={420 - i * 70} y2={0} stroke={T.navy} strokeWidth="1" />
+            ))}
+          </svg>
+        </div>
+
+        {/* ── Main content ── */}
+        <div className="h-outer" style={{
+          position: "relative", zIndex: 2,
+          maxWidth: 1260, margin: "0 auto",
+          padding: "120px 5% 80px",
+        }}>
+          <div className="h-grid" style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 72, alignItems: "center",
+          }}>
+
+            {/* LEFT */}
+            <div>
+              {/* Eyebrow */}
+              <motion.div
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: 8,
+                  background: T.orangeLight,
+                  border: `1px solid ${T.orange}30`,
+                  borderRadius: 6, padding: "6px 14px", marginBottom: 24,
+                }}
+              >
+                <Sparkles size={13} color={T.orange} />
+                <span style={{ fontSize: "0.7rem", color: T.orange, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                  Trusted by Australian Businesses 🇦🇺
+                </span>
+              </motion.div>
+
+              {/* Headline */}
+              <motion.h1
+                className="h-head"
+                initial={{ opacity: 0, y: 28 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.75, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+                style={{
+                  fontSize: "clamp(2.6rem, 3.8vw, 4rem)",
+                  fontWeight: 900, lineHeight: 1.08,
+                  color: T.gray900, letterSpacing: "-0.025em",
+                  marginBottom: 20,
+                }}
+              >
+                Run Your Business<br />
+                on One{" "}
+                <span style={{ position: "relative", display: "inline-block" }}>
+                  <span style={{ color: T.orange }}>Powerful</span>
+                  <motion.svg
+                    viewBox="0 0 200 12"
+                    style={{ position: "absolute", bottom: -5, left: 0, width: "100%", overflow: "visible" }}
+                  >
+                    <motion.path
+                      d="M 4 9 Q 100 2 196 7"
+                      fill="none" stroke={T.orange} strokeWidth="3" strokeLinecap="round"
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      animate={{ pathLength: 1, opacity: 1 }}
+                      transition={{ delay: 0.85, duration: 0.7 }}
+                    />
+                  </motion.svg>
+                </span>
+                {" "}Platform
+              </motion.h1>
+
+              {/* Body */}
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.65 }}
+                style={{
+                  fontSize: "1rem", lineHeight: 1.8,
+                  color: T.gray800, maxWidth: 460, marginBottom: 28,
+                }}
+              >
+                We help Australian 🇦🇺 SMEs eliminate operational chaos with{" "}
+                <strong style={{ color: T.navy, fontWeight: 700 }}>Odoo ERP</strong>,
+                Custom <strong style={{ color: T.navy, fontWeight: 700 }}>Websites</strong>, and 
+                <strong style={{ color: T.navy, fontWeight: 700 }}> Mobile Apps</strong> — fully integrated,
+                GST‑compliant, and live in as little as 14 days.
+              </motion.p>
+
+              {/* Rotating capability line */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                style={{
+                  display: "flex", alignItems: "center", gap: 10,
+                  marginBottom: 32, height: 26,
+                }}
+              >
+                <ChevronRight size={15} color={T.orange} strokeWidth={2.5} />
+                <div style={{ overflow: "hidden", height: 22 }}>
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={capIdx}
+                      initial={{ y: 22, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: -22, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      style={{ display: "block", fontSize: "0.88rem", fontWeight: 600, color: T.navy }}
+                    >
+                      {caps[capIdx]}
+                    </motion.span>
+                  </AnimatePresence>
+                </div>
+              </motion.div>
+
+              {/* CTAs */}
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.38, duration: 0.6 }}
+                style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 48 }}
+              >
+                <a href="#contact" className="h-btn-primary">
+                  Book Free ERP Audit
+                  <ArrowRight size={16} />
+                </a>
+                <a href="#demo" className="h-btn-ghost">
+                  <div style={{
+                    width: 26, height: 26, borderRadius: "50%",
+                    background: T.navy,
+                    display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+                  }}>
+                    <Play size={10} style={{ fill: "#fff", color: "#fff", marginLeft: 2 }} />
+                  </div>
+                  Watch Demo
+                </a>
+              </motion.div>
+
+              {/* Stats bar */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.52 }}
+                style={{
+                  display: "flex", gap: 0, flexWrap: "wrap",
+                  background: T.gray50,
+                  border: `1px solid ${T.gray100}`,
+                  borderRadius: 14, overflow: "hidden",
+                }}
+              >
+                {[
+                  { val: 14, suffix: "+",    label: "Years Experience" },
+                  { val: 25, suffix: "%",    label: "Avg Cost Saved" },
+                  { val: 14, suffix: " days",label: "Go-Live Time" },
+                ].map((s, i) => (
+                  <div key={i} style={{
+                    flex: 1, padding: "18px 20px",
+                    borderRight: i < 2 ? `1px solid ${T.gray100}` : "none",
+                    textAlign: "center", minWidth: 100,
+                  }}>
+                    <div style={{
+                      fontSize: "1.85rem", fontWeight: 900,
+                      color: T.navy, lineHeight: 1, marginBottom: 4,
+                    }}>
+                      <AnimNum to={s.val} suffix={s.suffix} />
+                    </div>
+                    <div style={{ fontSize: "0.68rem", color: T.gray800, fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                      {s.label}
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* RIGHT */}
+            <div className="h-right" style={{ position: "relative" }}>
+              {/* Soft color backdrop */}
+              <div style={{
+                position: "absolute",
+                top: "50%", left: "50%",
+                transform: "translate(-50%, -50%)",
+                width: "108%", height: "108%",
+                borderRadius: 28,
+                background: `linear-gradient(140deg, ${T.sky} 0%, ${T.orangeLight} 100%)`,
+                zIndex: 0,
+              }} />
+
+              <motion.div
+                initial={{ opacity: 0, y: 36 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.85, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                style={{ position: "relative", zIndex: 1 }}
+              >
+                <Dashboard />
+              </motion.div>
+
+              {/* Floating badge – top left */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.7 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1.0, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                style={{
+                  position: "absolute", top: -20, left: -28, zIndex: 5,
+                  background: T.white, borderRadius: 12,
+                  padding: "10px 14px",
+                  display: "flex", alignItems: "center", gap: 10,
+                  boxShadow: "0 8px 28px rgba(26,47,110,0.13)",
+                  border: `1px solid ${T.gray100}`,
+                }}
+              >
+                <div style={{
+                  width: 36, height: 36, borderRadius: 10, background: T.orangeLight,
+                  display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.1rem",
+                }}>⚡</div>
+                <div>
+                  <div style={{ fontSize: "0.58rem", color: T.gray800, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.07em" }}>Live In</div>
+                  <div style={{ fontSize: "1rem", fontWeight: 800, color: T.gray900 }}>14 Days</div>
+                </div>
+              </motion.div>
+
+              {/* Floating badge – bottom right */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.7 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1.2, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                style={{
+                  position: "absolute", bottom: -20, right: -24, zIndex: 5,
+                  background: T.white, borderRadius: 12,
+                  padding: "10px 14px",
+                  display: "flex", alignItems: "center", gap: 10,
+                  boxShadow: "0 8px 28px rgba(26,47,110,0.13)",
+                  border: `1px solid ${T.gray100}`,
+                }}
+              >
+                <div style={{
+                  width: 36, height: 36, borderRadius: 10, background: "#DCFCE7",
+                  display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.1rem",
+                }}>🇦🇺</div>
+                <div>
+                  <div style={{ fontSize: "0.58rem", color: T.gray800, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.07em" }}>GST Ready</div>
+                  <div style={{ fontSize: "1rem", fontWeight: 800, color: "#16A34A" }}>ATO Compliant</div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Industry strip ── */}
+        {/* <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.6 }}
+          style={{
+            position: "relative", zIndex: 2,
+            borderTop: `1px solid ${T.gray100}`,
+            background: T.gray50,
+            padding: "18px 5%",
+          }}
+        >
+          <div style={{
+            maxWidth: 1260, margin: "0 auto",
+            display: "flex", alignItems: "center",
+            gap: 10, flexWrap: "wrap",
+          }}>
+            <span style={{
+              fontSize: "0.68rem", color: T.gray800, fontWeight: 600,
+              textTransform: "uppercase", letterSpacing: "0.08em",
+              marginRight: 8, whiteSpace: "nowrap",
+            }}>
+              Industries we serve
+            </span>
+
+            {[
+              { icon: "🏗️", name: "Construction" },
+              { icon: "🏭", name: "Manufacturing" },
+              { icon: "🛒", name: "Retail" },
+              { icon: "🚚", name: "Logistics" },
+              { icon: "💼", name: "Professional Services" },
+            ].map((ind, i) => (
+              <div key={i} style={{
+                display: "flex", alignItems: "center", gap: 6,
+                background: T.white, border: `1px solid ${T.gray100}`,
+                borderRadius: 20, padding: "5px 12px",
+                fontSize: "0.78rem", color: T.gray800, fontWeight: 500,
+              }}>
+                <span style={{ fontSize: "0.88rem" }}>{ind.icon}</span>
+                {ind.name}
+              </div>
+            ))}
+
+            <div style={{ marginLeft: "auto" }}>
+              <div style={{
+                display: "flex", alignItems: "center", gap: 7,
+                background: T.orangeLight, border: `1px solid ${T.orange}30`,
+                borderRadius: 20, padding: "6px 14px",
+              }}>
+                <CheckCircle size={13} color={T.orange} />
+                <span style={{ fontSize: "0.7rem", color: T.orange, fontWeight: 700 }}>Odoo Certified Partner</span>
+              </div>
+            </div>
+          </div>
+        </motion.div> */}
+      </section>
+    </>
+  );
+};
+
+export default Hero;

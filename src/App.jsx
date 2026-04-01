@@ -7,6 +7,9 @@ import Contact from "./pages/Contact";
 import WhyChooseUs from "./pages/WhyChooseUs";
 import OdooImplementation from "./pages/OdooImplementation";
 import Services from "./pages/Services";
+import WebDev from "./pages/WebDev";
+import UIUX from "./pages/UIUX";
+import CaseStudies from "./pages/CaseStudies";
 import ScrollToTop from "./components/ScrollToTop"; // Import the ScrollToTop component
 
 
@@ -47,10 +50,13 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/why-choose-us" element={<WhyChooseUs />} />
             <Route
-              path="/odoo-implementation"
+              path="/process"
               element={<OdooImplementation />}
             />
             <Route path="/services/:type" element={<Services />} />
+            <Route path="/web-development" element={<WebDev />} />
+            <Route path="/ui-ux-design" element={<UIUX />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
             {/* <Route path="/contact" element={<Contact />} /> */}
           </Routes>
         </main>

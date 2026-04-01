@@ -1,254 +1,505 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { ArrowRight, Settings, Globe, Smartphone, Layers, LifeBuoy, BookOpen } from "lucide-react";
 
-const C = {
-  orange: "#F97316", orangeD: "#EA580C",
-  blue: "#1B3A7A", blueM: "#1E40AF", blueL: "#2563EB",
-  sky: "#0EA5E9", dark: "#0A0F1E", white: "#FFFFFF",
-  light: "#F8FAFC", mid: "#64748B",
+// ─── Brand Tokens (matches Hero theme) ───────────────────────────────────────
+const T = {
+  navy:        "#1A2F6E",
+  navyLight:   "#2442A0",
+  orange:      "#F47B20",
+  orangeLight: "#FEF0E4",
+  white:       "#FFFFFF",
+  gray50:      "#F8F9FC",
+  gray100:     "#EEF1F8",
+  gray200:     "#E2E7F4",
+  gray400:     "#9AA3BE",
+  gray600:     "#5A6482",
+  gray900:     "#151C35",
 };
 
-const services = [
+// ─── Three service pillars from strategy doc ──────────────────────────────────
+const pillars = [
   {
-    icon: "⚙️",
-    title: "ERP Consulting & Strategy",
-    desc: "We analyze business processes, identify gaps, and design ERP roadmaps aligned with your operational and growth objectives.",
-    gradient: `linear-gradient(135deg, ${C.blueM}, ${C.blueL})`,
-    accent: C.blueL,
+    id: "erp",
+    eyebrow: "Core Offering",
+    title: "Odoo ERP Solutions",
+    desc: "End-to-end ERP implementation for Australian SMEs — from business analysis and module setup to GST compliance and go-live support.",
+    icon: Layers,
+    color: T.navy,
+    light: "#EBF0FF",
+    services: [
+      { icon: Settings, label: "Implementation & Configuration" },
+      { icon: BookOpen,  label: "GST / BAS & ATO Compliance" },
+      { icon: LifeBuoy,  label: "Custom Modules & Integrations" },
+      { icon: ArrowRight,label: "Data Migration & Training" },
+    ],
+    cta: "Explore ERP Services",
   },
   {
-    icon: "</>",
-    title: "ERP Implementation",
-    desc: "End-to-end Odoo ERP implementation ensuring scalable, secure, and efficient system deployment with minimal disruption.",
-    gradient: `linear-gradient(135deg, ${C.orange}, ${C.orangeD})`,
-    accent: C.orange,
+    id: "web",
+    eyebrow: "Digital Presence",
+    title: "Website Development",
+    desc: "Fast, conversion-focused websites for Australian businesses — built to generate leads, rank on Google, and reflect your brand with confidence.",
+    icon: Globe,
+    color: T.orange,
+    light: T.orangeLight,
+    services: [
+      { icon: Globe,      label: "Business & Corporate Websites" },
+      { icon: ArrowRight, label: "Landing Pages & Lead Funnels" },
+      { icon: Settings,   label: "SEO & Performance Optimisation" },
+      { icon: LifeBuoy,   label: "CMS & Ongoing Maintenance" },
+    ],
+    cta: "Explore Web Services",
   },
   {
-    icon: "🛠",
-    title: "Customization & Development",
-    desc: "Custom modules, workflow automation, and integrations tailored to meet your unique business requirements.",
-    gradient: `linear-gradient(135deg, #7C3AED, #A855F7)`,
-    accent: "#A855F7",
-  },
-  {
-    icon: "🔄",
-    title: "Data Migration & Integration",
-    desc: "Secure data migration from legacy systems with seamless integration across third-party platforms and tools.",
-    gradient: `linear-gradient(135deg, #0EA5E9, #06B6D4)`,
-    accent: C.sky,
-  },
-  {
-    icon: "🎧",
-    title: "Support & Maintenance",
-    desc: "Continuous Odoo support including system monitoring, performance optimization, and post-implementation enhancements.",
-    gradient: `linear-gradient(135deg, #059669, #10B981)`,
-    accent: "#10B981",
-  },
-  {
-    icon: "🎓",
-    title: "Training & Knowledge Transfer",
-    desc: "Structured training and documentation to ensure smooth adoption and maximize long-term ERP value.",
-    gradient: `linear-gradient(135deg, #D97706, #F59E0B)`,
-    accent: "#F59E0B",
+    id: "app",
+    eyebrow: "Mobile Solutions",
+    title: "Mobile App Development",
+    desc: "Native and cross-platform apps for iOS & Android — purpose-built for field teams, logistics operations, and customer-facing experiences.",
+    icon: Smartphone,
+    color: "#0891B2",
+    light: "#E0F7FA",
+    services: [
+      { icon: Smartphone, label: "iOS & Android Development" },
+      { icon: Layers,     label: "ERP-Connected Field Apps" },
+      { icon: Settings,   label: "UI / UX Design & Prototyping" },
+      { icon: LifeBuoy,   label: "App Maintenance & Support" },
+    ],
+    cta: "Explore App Services",
   },
 ];
 
-const ServiceCard = ({ s, i }) => {
+// ─── Supporting ERP services (detail grid) ───────────────────────────────────
+const erpServices = [
+  {
+    icon: "01",
+    title: "ERP Consulting & Strategy",
+    desc: "We analyse your business processes, identify gaps, and design an ERP roadmap aligned with your growth objectives.",
+    accent: T.navy,
+  },
+  {
+    icon: "02",
+    title: "Implementation & Go-Live",
+    desc: "Structured deployment of Odoo modules — Accounting, Inventory, CRM, Payroll, Projects — with minimal disruption.",
+    accent: T.orange,
+  },
+  {
+    icon: "03",
+    title: "Custom Development",
+    desc: "Bespoke modules, workflow automation, and API integrations tailored to your exact operational requirements.",
+    accent: "#7C3AED",
+  },
+  {
+    icon: "04",
+    title: "Data Migration",
+    desc: "Secure, validated migration from legacy systems — spreadsheets, MYOB, Xero, or any previous ERP platform.",
+    accent: "#0891B2",
+  },
+  {
+    icon: "05",
+    title: "Support & Maintenance",
+    desc: "Ongoing system monitoring, bug fixes, Odoo version upgrades, and performance enhancements post go-live.",
+    accent: "#16A34A",
+  },
+  {
+    icon: "06",
+    title: "Training & Onboarding",
+    desc: "Role-based training sessions and documentation to ensure confident adoption across your entire team.",
+    accent: "#D97706",
+  },
+];
+
+// ─── Pillar Card ──────────────────────────────────────────────────────────────
+const PillarCard = ({ p, i }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
+  const Icon = p.icon;
+  const isPrimary = i === 0;
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 36 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-      whileHover={{ y: -6, transition: { duration: 0.25 } }}
+      transition={{ duration: 0.65, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
       style={{
-        background: C.white,
-        border: "1px solid #E2E8F0",
-        borderRadius: 18,
-        padding: "28px 26px",
+        background: isPrimary ? p.color : T.white,
+        border: `1px solid ${isPrimary ? "transparent" : T.gray100}`,
+        borderRadius: 20,
+        padding: "36px 32px",
         position: "relative",
         overflow: "hidden",
-        cursor: "default",
-        fontFamily: "'DM Sans', sans-serif",
+        display: "flex",
+        flexDirection: "column",
+        boxShadow: isPrimary
+          ? `0 24px 56px ${p.color}30`
+          : "0 4px 20px rgba(26,47,110,0.06)",
       }}
     >
-      {/* Hover shimmer */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileHover={{ opacity: 1 }}
-        style={{
-          position: "absolute", inset: 0,
-          background: `radial-gradient(ellipse at top left, ${s.accent}0e 0%, transparent 60%)`,
-          pointerEvents: "none",
-          transition: "opacity 0.3s",
-        }}
-      />
+      {/* Background pattern for primary card */}
+      {isPrimary && (
+        <div style={{ position: "absolute", inset: 0, pointerEvents: "none", overflow: "hidden" }}>
+          <div style={{
+            position: "absolute", top: -60, right: -60,
+            width: 220, height: 220,
+            background: "rgba(255,255,255,0.06)",
+            borderRadius: "50%",
+          }} />
+          <div style={{
+            position: "absolute", bottom: -40, left: -40,
+            width: 160, height: 160,
+            background: "rgba(255,255,255,0.04)",
+            borderRadius: "50%",
+          }} />
+          <svg style={{ position: "absolute", bottom: 0, right: 0, width: 140, height: 140, opacity: 0.06 }} viewBox="0 0 140 140">
+            {[0,1,2].map(i => (
+              <circle key={i} cx="140" cy="140" r={40 + i * 30} fill="none" stroke="white" strokeWidth="1" />
+            ))}
+          </svg>
+        </div>
+      )}
 
-      {/* Bottom accent bar */}
-      <motion.div
-        initial={{ scaleX: 0 }}
-        whileHover={{ scaleX: 1 }}
-        style={{
-          position: "absolute", bottom: 0, left: 0, right: 0, height: 3,
-          background: s.gradient, transformOrigin: "left", borderRadius: "0 0 18px 18px",
-        }}
-        transition={{ duration: 0.35 }}
-      />
-
-      {/* Icon */}
+      {/* Eyebrow */}
       <div style={{
-        width: 54, height: 54, borderRadius: 14,
-        background: s.gradient,
-        display: "flex", alignItems: "center", justifyContent: "center",
-        fontSize: s.icon === "</>" ? 18 : 24,
-        fontFamily: "monospace", fontWeight: 700, color: "#fff",
-        marginBottom: 18,
-        boxShadow: `0 8px 20px ${s.accent}35`,
+        display: "inline-flex", alignItems: "center", gap: 7,
+        background: isPrimary ? "rgba(255,255,255,0.12)" : p.light,
+        borderRadius: 6, padding: "5px 11px",
+        marginBottom: 20, alignSelf: "flex-start",
       }}>
-        {s.icon}
+        <span style={{
+          fontSize: "0.65rem", fontWeight: 700,
+          color: isPrimary ? "rgba(255,255,255,0.9)" : p.color,
+          letterSpacing: "0.1em", textTransform: "uppercase",
+        }}>
+          {p.eyebrow}
+        </span>
       </div>
 
-      <h3 style={{
-        fontFamily: "'Sora', sans-serif", fontWeight: 700,
-        fontSize: "1.02rem", color: C.dark, marginBottom: 10,
+      {/* Icon + title */}
+      <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 16 }}>
+        <div style={{
+          width: 48, height: 48, borderRadius: 14,
+          background: isPrimary ? "rgba(255,255,255,0.15)" : p.light,
+          display: "flex", alignItems: "center", justifyContent: "center",
+          flexShrink: 0,
+        }}>
+          <Icon size={22} color={isPrimary ? "#fff" : p.color} strokeWidth={1.8} />
+        </div>
+        <h3 style={{
+          fontWeight: 800, fontSize: "1.2rem",
+          color: isPrimary ? T.white : T.gray900,
+          lineHeight: 1.2, letterSpacing: "-0.01em",
+        }}>
+          {p.title}
+        </h3>
+      </div>
+
+      {/* Description */}
+      <p style={{
+        fontSize: "0.88rem", lineHeight: 1.75,
+        color: isPrimary ? "rgba(255,255,255,0.72)" : T.gray800,
+        marginBottom: 24,
       }}>
-        {s.title}
-      </h3>
-      <p style={{ color: C.mid, fontSize: "0.87rem", lineHeight: 1.65 }}>
-        {s.desc}
+        {p.desc}
       </p>
 
-      {/* Learn more link */}
-      <motion.div
-        initial={{ opacity: 0, x: -6 }}
-        whileHover={{ opacity: 1, x: 0 }}
+      {/* Service list */}
+      <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 28, flex: 1 }}>
+        {p.services.map((s, j) => {
+          const SIcon = s.icon;
+          return (
+            <div key={j} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div style={{
+                width: 28, height: 28, borderRadius: 8, flexShrink: 0,
+                background: isPrimary ? "rgba(255,255,255,0.1)" : p.light,
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}>
+                <SIcon size={13} color={isPrimary ? "rgba(255,255,255,0.8)" : p.color} strokeWidth={2} />
+              </div>
+              <span style={{
+                fontSize: "0.82rem", fontWeight: 500,
+                color: isPrimary ? "rgba(255,255,255,0.82)" : T.gray800,
+              }}>
+                {s.label}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* CTA */}
+      <a
+        href="#contact"
         style={{
-          marginTop: 16, display: "flex", alignItems: "center", gap: 5,
-          color: s.accent, fontSize: "0.83rem", fontWeight: 700,
-          fontFamily: "'Sora', sans-serif",
+          display: "inline-flex", alignItems: "center", gap: 8,
+          background: isPrimary ? "rgba(255,255,255,0.12)" : p.light,
+          border: isPrimary ? "1px solid rgba(255,255,255,0.2)" : `1px solid ${p.color}25`,
+          borderRadius: 8, padding: "11px 18px",
+          fontSize: "0.82rem", fontWeight: 700,
+          color: isPrimary ? T.white : p.color,
+          textDecoration: "none", alignSelf: "flex-start",
+          transition: "all 0.2s ease",
         }}
-        transition={{ duration: 0.2 }}
+        onMouseEnter={e => {
+          e.currentTarget.style.background = isPrimary ? "rgba(255,255,255,0.2)" : p.color;
+          e.currentTarget.style.color = isPrimary ? T.white : T.white;
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.style.background = isPrimary ? "rgba(255,255,255,0.12)" : p.light;
+          e.currentTarget.style.color = isPrimary ? T.white : p.color;
+        }}
       >
-        Learn more <span style={{ fontSize: 14 }}>→</span>
-      </motion.div>
+        {p.cta}
+        <ArrowRight size={14} />
+      </a>
     </motion.div>
   );
 };
 
-const Features = () => {
-  const headRef = useRef(null);
-  const headInView = useInView(headRef, { once: true });
+// ─── Detail Card ──────────────────────────────────────────────────────────────
+const DetailCard = ({ s, i }) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-40px" });
 
   return (
-    <section style={{
-      padding: "90px 5%",
-      background: C.light,
-      fontFamily: "'DM Sans', sans-serif",
-      overflow: "hidden",
-    }}>
-      <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 24 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.55, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+      style={{
+        background: T.white,
+        border: `1px solid ${T.gray100}`,
+        borderRadius: 16,
+        padding: "26px 24px",
+        position: "relative",
+        overflow: "hidden",
+        transition: "box-shadow 0.2s, transform 0.2s",
+        cursor: "default",
+      }}
+      whileHover={{ y: -4, boxShadow: "0 16px 40px rgba(26,47,110,0.1)" }}
+    >
+      {/* Left accent */}
+      <div style={{
+        position: "absolute", left: 0, top: 24, bottom: 24,
+        width: 3, borderRadius: "0 3px 3px 0",
+        background: s.accent,
+      }} />
 
-        {/* Header */}
-        <div ref={headRef} style={{ textAlign: "center", marginBottom: 56 }}>
-          <motion.span
-            initial={{ opacity: 0, y: -10 }}
-            animate={headInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            style={{
-              display: "inline-block",
-              background: `linear-gradient(135deg, rgba(249,115,22,0.1), rgba(37,99,235,0.08))`,
-              border: "1px solid rgba(249,115,22,0.22)",
-              color: C.orangeD, fontWeight: 700, fontSize: "0.75rem",
-              padding: "5px 16px", borderRadius: 30, marginBottom: 14,
-              letterSpacing: "0.06em", textTransform: "uppercase",
-            }}
-          >
-            What We Do
-          </motion.span>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={headInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            style={{
-              fontFamily: "'Sora', sans-serif", fontWeight: 800,
-              fontSize: "clamp(1.8rem, 3vw, 2.6rem)", color: C.dark, marginBottom: 14,
-            }}
-          >
-            Comprehensive Odoo ERP Services
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={headInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            style={{
-              color: C.mid, fontSize: "1rem", lineHeight: 1.7,
-              maxWidth: 560, margin: "0 auto",
-            }}
-          >
-            End-to-end ERP services covering consulting, implementation, customization,
-            and support — designed to streamline operations and deliver long-term business value.
-          </motion.p>
-        </div>
-
-        {/* Grid */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-          gap: 22,
-        }}>
-          {services.map((s, i) => <ServiceCard key={i} s={s} i={i} />)}
-        </div>
-
-        {/* CTA strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          style={{
-            marginTop: 48,
-            background: `linear-gradient(135deg, ${C.blue} 0%, ${C.blueL} 100%)`,
-            borderRadius: 20, padding: "32px 40px",
-            display: "flex", alignItems: "center", justifyContent: "space-between",
-            flexWrap: "wrap", gap: 20,
-            boxShadow: `0 20px 50px ${C.blueM}35`,
-          }}
-        >
-          <div>
-            <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 800, color: "#fff", fontSize: "1.3rem", marginBottom: 6 }}>
-              Ready to transform your business operations?
-            </h3>
-            <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.9rem" }}>
-              Connect with our ERP experts to discuss your business requirements.
-            </p>
-          </div>
-          <motion.button
-            whileHover={{ scale: 1.04, boxShadow: `0 12px 32px ${C.orange}55` }}
-            whileTap={{ scale: 0.97 }}
-            style={{
-              display: "flex", alignItems: "center", gap: 8,
-              background: `linear-gradient(135deg, ${C.orange}, ${C.orangeD})`,
-              color: "#fff", border: "none", borderRadius: 12,
-              padding: "12px 26px", fontSize: "0.92rem", fontWeight: 700,
-              cursor: "pointer", fontFamily: "'Sora', sans-serif",
-              boxShadow: `0 6px 20px ${C.orange}40`,
-              whiteSpace: "nowrap",
-            }}
-          >
-            Schedule a Demo →
-          </motion.button>
-        </motion.div>
+      {/* Number */}
+      <div style={{
+        fontSize: "0.65rem", fontWeight: 800,
+        color: s.accent, letterSpacing: "0.1em",
+        textTransform: "uppercase", marginBottom: 12,
+        fontFamily: "'Outfit', sans-serif",
+      }}>
+        {s.icon}
       </div>
 
+      <h4 style={{
+        fontWeight: 800, fontSize: "0.95rem",
+        color: T.gray900, marginBottom: 10,
+        lineHeight: 1.3, letterSpacing: "-0.01em",
+      }}>
+        {s.title}
+      </h4>
+
+      <p style={{
+        fontSize: "0.82rem", lineHeight: 1.7,
+        color: T.gray800,
+      }}>
+        {s.desc}
+      </p>
+    </motion.div>
+  );
+};
+
+// ─── Main Section ─────────────────────────────────────────────────────────────
+const Features = () => {
+  const headRef = useRef(null);
+  const inView = useInView(headRef, { once: true, margin: "-60px" });
+
+  return (
+    <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=DM+Sans:wght@400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap');
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
       `}</style>
-    </section>
+
+      <section style={{
+        background: T.gray100,
+        padding: "100px 5%",
+        fontFamily: "'Outfit', sans-serif",
+        overflow: "hidden",
+      }}>
+        <div style={{ maxWidth: 1260, margin: "0 auto" }}>
+
+          {/* ── Section header ── */}
+          <div ref={headRef} style={{ marginBottom: 60 }}>
+            <motion.div
+              initial={{ opacity: 0, x: -16 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5 }}
+              style={{
+                display: "inline-flex", alignItems: "center", gap: 8,
+                background: T.orangeLight, border: `1px solid ${T.orange}30`,
+                borderRadius: 6, padding: "6px 14px", marginBottom: 20,
+              }}
+            >
+              <span style={{
+                fontSize: "0.7rem", color: T.orange, fontWeight: 700,
+                letterSpacing: "0.1em", textTransform: "uppercase",
+              }}>
+                What We Deliver
+              </span>
+            </motion.div>
+
+            <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 24, flexWrap: "wrap" }}>
+              <motion.h2
+                initial={{ opacity: 0, y: 22 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.65, delay: 0.08 }}
+                style={{
+                  fontSize: "clamp(2rem, 3.2vw, 3rem)",
+                  fontWeight: 900, color: T.gray900,
+                  lineHeight: 1.1, letterSpacing: "-0.025em",
+                  maxWidth: 540,
+                }}
+              >
+                Three Ways We Help
+                <br />
+                <span style={{ color: T.orange }}>Your Business Grow</span>
+              </motion.h2>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={inView ? { opacity: 1 } : {}}
+                transition={{ duration: 0.6, delay: 0.18 }}
+                style={{
+                  fontSize: "0.95rem", lineHeight: 1.75,
+                  color: T.gray800, maxWidth: 380,
+                }}
+              >
+                From ERP implementation and business websites to mobile apps —
+                each service line is designed to work independently or together
+                as a fully integrated solution.
+              </motion.p>
+            </div>
+          </div>
+
+          {/* ── Pillar cards ── */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: 20, marginBottom: 80,
+          }}>
+            {pillars.map((p, i) => <PillarCard key={p.id} p={p} i={i} />)}
+          </div>
+
+          {/* ── ERP detail divider ── */}
+          {/* <div style={{
+            display: "flex", alignItems: "center", gap: 20, marginBottom: 40,
+          }}>
+            <div style={{ flex: 1, height: 1, background: T.gray100 }} />
+            <div style={{
+              background: T.white, border: `1px solid ${T.gray100}`,
+              borderRadius: 20, padding: "8px 20px",
+              fontSize: "0.72rem", fontWeight: 700,
+              color: T.navy, letterSpacing: "0.08em", textTransform: "uppercase",
+              whiteSpace: "nowrap",
+            }}>
+              ERP Service Breakdown
+            </div>
+            <div style={{ flex: 1, height: 1, background: T.gray100 }} />
+          </div>
+
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+            gap: 16, marginBottom: 64,
+          }}>
+            {erpServices.map((s, i) => <DetailCard key={i} s={s} i={i} />)}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6 }}
+            style={{
+              background: T.navy,
+              borderRadius: 20,
+              padding: "40px 48px",
+              display: "flex", alignItems: "center",
+              justifyContent: "space-between",
+              flexWrap: "wrap", gap: 24,
+              position: "relative", overflow: "hidden",
+            }}
+          >
+            <div style={{ position: "absolute", right: -40, top: -40, width: 200, height: 200, background: "rgba(255,255,255,0.04)", borderRadius: "50%", pointerEvents: "none" }} />
+            <div style={{ position: "absolute", right: 60, bottom: -60, width: 160, height: 160, background: `${T.orange}18`, borderRadius: "50%", pointerEvents: "none" }} />
+
+            <div style={{ position: "relative" }}>
+              <div style={{
+                fontSize: "0.68rem", fontWeight: 700,
+                color: `${T.orange}`, letterSpacing: "0.1em",
+                textTransform: "uppercase", marginBottom: 10,
+              }}>
+                Ready to get started?
+              </div>
+              <h3 style={{
+                fontWeight: 800, fontSize: "1.4rem",
+                color: T.white, lineHeight: 1.2,
+                letterSpacing: "-0.015em", marginBottom: 8,
+              }}>
+                Transform your operations
+                <br />with the right technology.
+              </h3>
+              <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.88rem" }}>
+                Talk to our team — no obligations, just a clear plan.
+              </p>
+            </div>
+
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", position: "relative" }}>
+              <a
+                href="#contact"
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: 8,
+                  background: T.orange, color: T.white,
+                  border: "none", borderRadius: 8,
+                  padding: "13px 24px", fontSize: "0.88rem", fontWeight: 700,
+                  cursor: "pointer", textDecoration: "none",
+                  boxShadow: `0 6px 24px ${T.orange}45`,
+                  transition: "all 0.2s ease",
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#E06510"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = T.orange; e.currentTarget.style.transform = "translateY(0)"; }}
+              >
+                Book Free ERP Audit
+                <ArrowRight size={15} />
+              </a>
+              <a
+                href="#services"
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: 8,
+                  background: "rgba(255,255,255,0.08)",
+                  border: "1px solid rgba(255,255,255,0.15)",
+                  color: T.white, borderRadius: 8,
+                  padding: "13px 24px", fontSize: "0.88rem", fontWeight: 600,
+                  cursor: "pointer", textDecoration: "none",
+                  transition: "all 0.2s ease",
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.14)"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.08)"; }}
+              >
+                View All Services
+              </a>
+            </div>
+          </motion.div> */}
+
+        </div>
+      </section>
+    </>
   );
 };
 

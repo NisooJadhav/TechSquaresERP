@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { FaBars, FaTimes, FaAngleDown, FaDownload } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import { FaBars, FaTimes, FaAngleDown } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "/logo-2.PNG";
@@ -16,36 +16,25 @@ const C = {
   mid: "#64748B",
 };
 
-const serviceLinks = [
+const odooServiceLinks = [
   { name: "Odoo Migration", path: "/services/migration", icon: "🔄" },
   { name: "Odoo Customization", path: "/services/customization", icon: "🛠" },
   { name: "Odoo Integration", path: "/services/integration", icon: "🔗" },
-  { name: "Odoo Web/App Development", path: "/services/development", icon: "</>" },
+  { name: "Odoo Web/OWL Development", path: "/services/development", icon: "</>" },
   { name: "Odoo Training", path: "/services/training", icon: "🎓" },
   { name: "Support & Maintenance", path: "/services/support", icon: "🎧" },
 ];
 
-const otherServices = [
-  { name: "Web Design & Development", path: "/services/web-development", icon: "🌐" },
-  { name: "Automation Testing", path: "/services/automation-testing", icon: "⚙️" },
-  { name: "Digital Marketing", path: "/services/digital-marketing", icon: "📈" },
-  { name: "Graphic Designing", path: "/services/graphic-designing", icon: "🎨" },
-  { name: "RPA", path: "/services/rpa", icon: "🤖" },
-];
-
-const navLinks = [
-  { name: "Home", path: "/" },
-  { name: "About Us", path: "/about" },
-  { name: "Odoo Implementation", path: "/odoo-implementation" },
+const otherServiceLinks = [
+  { name: "Web Development", path: "/web-development", icon: "🌐" },
+  { name: "Mobile App Development", path: "/mobile-app-development", icon: "📱" },
+  { name: "UI/UX Design", path: "/ui-ux-design", icon: "🎨" },
+  { name: "Graphic Design", path: "/graphic-design", icon: "🖌" },
 ];
 
 // ── Desktop Dropdown
 const DesktopDropdown = ({ label, links, isOpen, onOpen, onClose }) => (
-  <div
-    className="relative"
-    onMouseEnter={onOpen}
-    onMouseLeave={onClose}
-  >
+  <div className="relative" onMouseEnter={onOpen} onMouseLeave={onClose}>
     <button
       style={{
         display: "flex",
@@ -84,21 +73,27 @@ const DesktopDropdown = ({ label, links, isOpen, onOpen, onClose }) => (
             position: "absolute",
             left: 0,
             top: "calc(100% + 8px)",
-            minWidth: 240,
+            minWidth: 250,
             background: "#fff",
             borderRadius: 14,
-            boxShadow: "0 16px 48px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06)",
+            boxShadow:
+              "0 16px 48px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06)",
             border: "1px solid rgba(0,0,0,0.06)",
             overflow: "hidden",
             zIndex: 200,
             padding: "6px",
           }}
         >
-          {/* Top accent */}
-          <div style={{
-            position: "absolute", top: 0, left: 0, right: 0, height: 2,
-            background: `linear-gradient(90deg, ${C.orange}, ${C.blueL})`,
-          }} />
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: 2,
+              background: `linear-gradient(90deg, ${C.orange}, ${C.blueL})`,
+            }}
+          />
 
           {links.map((link) => (
             <NavLink
@@ -119,15 +114,29 @@ const DesktopDropdown = ({ label, links, isOpen, onOpen, onClose }) => (
                 transition: "background 0.15s, color 0.15s",
                 fontFamily: "'DM Sans', sans-serif",
               })}
-              onMouseEnter={e => { e.currentTarget.style.background = `${C.orange}0a`; e.currentTarget.style.color = C.orange; }}
-              onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = C.dark; }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = `${C.orange}0a`;
+                e.currentTarget.style.color = C.orange;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.color = C.dark;
+              }}
             >
-              <span style={{
-                width: 30, height: 30, borderRadius: 8,
-                background: `linear-gradient(135deg, ${C.orange}18, ${C.blueL}10)`,
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: 14, flexShrink: 0, fontFamily: "monospace",
-              }}>
+              <span
+                style={{
+                  width: 30,
+                  height: 30,
+                  borderRadius: 8,
+                  background: `linear-gradient(135deg, ${C.orange}18, ${C.blueL}10)`,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: 14,
+                  flexShrink: 0,
+                  fontFamily: "monospace",
+                }}
+              >
                 {link.icon}
               </span>
               {link.name}
@@ -161,7 +170,10 @@ const MobileAccordion = ({ label, links, isOpen, onToggle }) => (
       }}
     >
       {label}
-      <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.22 }}>
+      <motion.span
+        animate={{ rotate: isOpen ? 180 : 0 }}
+        transition={{ duration: 0.22 }}
+      >
         <FaAngleDown size={13} color={isOpen ? C.orange : C.mid} />
       </motion.span>
     </button>
@@ -175,14 +187,24 @@ const MobileAccordion = ({ label, links, isOpen, onToggle }) => (
           transition={{ duration: 0.28, ease: "easeInOut" }}
           style={{ overflow: "hidden" }}
         >
-          <div style={{ padding: "8px 0 8px 12px", display: "flex", flexDirection: "column", gap: 2 }}>
-            {links.map(link => (
+          <div
+            style={{
+              padding: "8px 0 8px 12px",
+              display: "flex",
+              flexDirection: "column",
+              gap: 2,
+            }}
+          >
+            {links.map((link) => (
               <NavLink
                 key={link.name}
                 to={link.path}
                 style={({ isActive }) => ({
-                  display: "flex", alignItems: "center", gap: 8,
-                  padding: "9px 12px", borderRadius: 9,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
+                  padding: "9px 12px",
+                  borderRadius: 9,
                   textDecoration: "none",
                   color: isActive ? C.orange : C.mid,
                   fontSize: "0.875rem",
@@ -190,7 +212,9 @@ const MobileAccordion = ({ label, links, isOpen, onToggle }) => (
                   fontFamily: "'DM Sans', sans-serif",
                 })}
               >
-                <span style={{ fontSize: 14, fontFamily: "monospace" }}>{link.icon}</span>
+                <span style={{ fontSize: 14, fontFamily: "monospace" }}>
+                  {link.icon}
+                </span>
                 {link.name}
               </NavLink>
             ))}
@@ -207,7 +231,6 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [odooOpen, setOdooOpen] = useState(false);
   const [otherOpen, setOtherOpen] = useState(false);
-  const [mobileDropdown, setMobileDropdown] = useState(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -215,7 +238,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close mobile menu on resize to desktop
   useEffect(() => {
     const onResize = () => {
       if (window.innerWidth >= 1024) setIsOpen(false);
@@ -244,19 +266,17 @@ const Navbar = () => {
         .nav-link:hover { color: #F97316; }
         .nav-link.active { color: #F97316; font-weight: 700; }
 
-        /* Responsive: show desktop links only on lg+ */
         .desktop-links { display: none; }
         @media (min-width: 1024px) {
-          .desktop-links { display: flex; align-items: center; gap: 24px; }
+          .desktop-links { display: flex; align-items: center; gap: 18px; }
           .mobile-toggle { display: none !important; }
         }
         @media (max-width: 1023px) {
           .mobile-toggle { display: flex !important; }
         }
 
-        /* Tighter gaps on smaller desktop screens */
-        @media (min-width: 1024px) and (max-width: 1180px) {
-          .desktop-links { gap: 16px; }
+        @media (min-width: 1024px) and (max-width: 1280px) {
+          .desktop-links { gap: 12px; }
           .nav-link { font-size: 0.82rem; }
         }
       `}</style>
@@ -264,111 +284,137 @@ const Navbar = () => {
       <header
         style={{
           position: "fixed",
-          top: 0, left: 0, right: 0,
+          top: 0,
+          left: 0,
+          right: 0,
           zIndex: 100,
           background: scrolled ? "rgba(255,255,255,0.96)" : "#fff",
           backdropFilter: scrolled ? "blur(14px)" : "none",
-          boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.08)" : "0 1px 0 rgba(0,0,0,0.06)",
+          boxShadow: scrolled
+            ? "0 2px 20px rgba(0,0,0,0.08)"
+            : "0 1px 0 rgba(0,0,0,0.06)",
           transition: "box-shadow 0.3s, background 0.3s",
           fontFamily: "'DM Sans', sans-serif",
         }}
       >
-        {/* Top accent line */}
-        <div style={{
-          height: 3,
-          background: `linear-gradient(90deg, ${C.orange}, ${C.sky}, ${C.blueL})`,
-        }} />
+        <div
+          style={{
+            height: 3,
+            background: `linear-gradient(90deg, ${C.orange}, ${C.sky}, ${C.blueL})`,
+          }}
+        />
 
-        <nav style={{
-          maxWidth: 1280,
-          margin: "0 auto",
-          padding: scrolled ? "8px 4%" : "12px 4%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          transition: "padding 0.3s",
-          gap: 12,
-        }}>
+        <nav
+          style={{
+            maxWidth: 1280,
+            margin: "0 auto",
+            padding: scrolled ? "8px 4%" : "12px 4%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            transition: "padding 0.3s",
+            gap: 12,
+          }}
+        >
           {/* Logo */}
           <NavLink
             to="/"
             onClick={scrollTop}
-            style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none", flexShrink: 0 }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+              textDecoration: "none",
+              flexShrink: 0,
+            }}
           >
             <img
               src={logo}
               alt="Suktam Technologies Logo"
-              style={{ height: scrolled ? 56 : 64, width: "auto", transition: "height 0.3s" }}
+              style={{
+                height: scrolled ? 56 : 64,
+                width: "auto",
+                transition: "height 0.3s",
+              }}
             />
           </NavLink>
 
           {/* Desktop links */}
           <div className="desktop-links">
-            {navLinks.map(link => (
-              <NavLink
-                key={link.name}
-                to={link.path}
-                onClick={scrollTop}
-                className={({ isActive }) => `nav-link${isActive ? " active" : ""}`}
-              >
-                {link.name}
-              </NavLink>
-            ))}
+            <NavLink
+              to="/"
+              onClick={scrollTop}
+              className={({ isActive }) => `nav-link${isActive ? " active" : ""}`}
+            >
+              Home
+            </NavLink>
 
             <DesktopDropdown
-              label="Odoo Services"
-              links={serviceLinks}
+              label="Odoo ERP Services"
+              links={odooServiceLinks}
               isOpen={odooOpen}
-              onOpen={() => { setOdooOpen(true); setOtherOpen(false); }}
+              onOpen={() => setOdooOpen(true)}
               onClose={() => setOdooOpen(false)}
             />
 
             <DesktopDropdown
-              label="More Services"
-              links={otherServices}
+              label="Other Services"
+              links={otherServiceLinks}
               isOpen={otherOpen}
-              onOpen={() => { setOtherOpen(true); setOdooOpen(false); }}
+              onOpen={() => setOtherOpen(true)}
               onClose={() => setOtherOpen(false)}
             />
 
-            <a href="/suktam_odoo.pdf" style={{ flexShrink: 0 }}>
-              <button
-                // onClick={() => setIsOpen(false)}
-                style={{
-                  display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-                  background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.3)",
-                  color: "#16A34A", borderRadius: 10, padding: "12px",
-                  fontSize: "0.9rem", fontWeight: 700, cursor: "pointer",
-                  fontFamily: "'Sora', sans-serif",
-                  width: "100%",
-                }}
-              >
-                <FaDownload size={14} /> Brochure
-              </button>
-            </a>
+            <NavLink
+              to="/case-studies"
+              onClick={scrollTop}
+              className={({ isActive }) => `nav-link${isActive ? " active" : ""}`}
+            >
+              Case Studies
+            </NavLink>
 
-            {/* CTA */}
+            <NavLink
+              to="/about"
+              onClick={scrollTop}
+              className={({ isActive }) => `nav-link${isActive ? " active" : ""}`}
+            >
+              About
+            </NavLink>
+
             <a href="mailto:contact@suktamtech.com" style={{ flexShrink: 0 }}>
               <motion.button
                 whileHover={{ scale: 1.04, boxShadow: `0 10px 28px ${C.orange}40` }}
                 whileTap={{ scale: 0.97 }}
                 style={{
-                  display: "flex", alignItems: "center", gap: 7,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 7,
                   background: `linear-gradient(135deg, ${C.orange}, ${C.orangeD})`,
-                  color: "#fff", border: "none", borderRadius: 9,
-                  padding: "10px 18px", fontSize: "0.85rem", fontWeight: 700,
-                  cursor: "pointer", fontFamily: "'Sora', sans-serif",
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: 9,
+                  padding: "10px 18px",
+                  fontSize: "0.85rem",
+                  fontWeight: 700,
+                  cursor: "pointer",
+                  fontFamily: "'Sora', sans-serif",
                   boxShadow: `0 4px 16px ${C.orange}35`,
                   position: "relative",
                   whiteSpace: "nowrap",
                 }}
               >
-                <span style={{
-                  position: "absolute", top: -4, right: -4,
-                  width: 9, height: 9, borderRadius: "50%",
-                  background: "#22C55E",
-                  boxShadow: "0 0 0 2px #fff",
-                }} />
+                <span
+                  style={{
+                    position: "absolute",
+                    top: -4,
+                    right: -4,
+                    width: 9,
+                    height: 9,
+                    borderRadius: "50%",
+                    background: "#22C55E",
+                    boxShadow: "0 0 0 2px #fff",
+                  }}
+                />
                 Book Free Consultation
               </motion.button>
             </a>
@@ -380,17 +426,39 @@ const Navbar = () => {
             onClick={() => setIsOpen(!isOpen)}
             className="mobile-toggle"
             style={{
-              background: "none", border: "none", cursor: "pointer",
-              color: C.dark, padding: 6, borderRadius: 8,
-              alignItems: "center", justifyContent: "center",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              color: C.dark,
+              padding: 6,
+              borderRadius: 8,
+              alignItems: "center",
+              justifyContent: "center",
               flexShrink: 0,
             }}
           >
             <AnimatePresence mode="wait">
-              {isOpen
-                ? <motion.span key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.18 }}><FaTimes size={22} /></motion.span>
-                : <motion.span key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.18 }}><FaBars size={22} /></motion.span>
-              }
+              {isOpen ? (
+                <motion.span
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.18 }}
+                >
+                  <FaTimes size={22} />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="open"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.18 }}
+                >
+                  <FaBars size={22} />
+                </motion.span>
+              )}
             </AnimatePresence>
           </motion.button>
         </nav>
@@ -409,68 +477,105 @@ const Navbar = () => {
                 borderTop: "1px solid rgba(0,0,0,0.06)",
               }}
             >
-              <div style={{ padding: "12px 5% 20px", display: "flex", flexDirection: "column", gap: 0 }}>
-                {navLinks.map(link => (
-                  <NavLink
-                    key={link.name}
-                    to={link.path}
-                    onClick={() => { setIsOpen(false); scrollTop(); }}
-                    style={({ isActive }) => ({
-                      display: "block",
-                      padding: "12px 0",
-                      textDecoration: "none",
-                      color: isActive ? C.orange : C.dark,
-                      fontSize: "0.95rem",
-                      fontWeight: isActive ? 700 : 500,
-                      borderBottom: "1px solid rgba(0,0,0,0.06)",
-                      fontFamily: "'DM Sans', sans-serif",
-                    })}
-                  >
-                    {link.name}
-                  </NavLink>
-                ))}
+              <div
+                style={{
+                  padding: "12px 5% 20px",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 0,
+                }}
+              >
+                <NavLink
+                  to="/"
+                  onClick={() => {
+                    setIsOpen(false);
+                    scrollTop();
+                  }}
+                  style={({ isActive }) => ({
+                    display: "block",
+                    padding: "12px 0",
+                    textDecoration: "none",
+                    color: isActive ? C.orange : C.dark,
+                    fontSize: "0.95rem",
+                    fontWeight: isActive ? 700 : 500,
+                    borderBottom: "1px solid rgba(0,0,0,0.06)",
+                    fontFamily: "'DM Sans', sans-serif",
+                  })}
+                >
+                  Home
+                </NavLink>
 
                 <MobileAccordion
-                  label="Odoo Services"
-                  links={serviceLinks}
+                  label="Odoo ERP Services"
+                  links={odooServiceLinks}
                   isOpen={mobileDropdown === "odoo"}
-                  onToggle={() => setMobileDropdown(p => p === "odoo" ? null : "odoo")}
+                  onToggle={() =>
+                    setMobileDropdown((p) => (p === "odoo" ? null : "odoo"))
+                  }
                 />
 
                 <MobileAccordion
-                  label="More Services"
-                  links={otherServices}
+                  label="Other Services"
+                  links={otherServiceLinks}
                   isOpen={mobileDropdown === "other"}
-                  onToggle={() => setMobileDropdown(p => p === "other" ? null : "other")}
+                  onToggle={() =>
+                    setMobileDropdown((p) => (p === "other" ? null : "other"))
+                  }
                 />
 
-                <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 16 }}>
-                  <center>
+                <NavLink
+                  to="/case-studies"
+                  onClick={() => {
+                    setIsOpen(false);
+                    scrollTop();
+                  }}
+                  style={({ isActive }) => ({
+                    display: "block",
+                    padding: "12px 0",
+                    textDecoration: "none",
+                    color: isActive ? C.orange : C.dark,
+                    fontSize: "0.95rem",
+                    fontWeight: isActive ? 700 : 500,
+                    borderBottom: "1px solid rgba(0,0,0,0.06)",
+                    fontFamily: "'DM Sans', sans-serif",
+                  })}
+                >
+                  Case Studies
+                </NavLink>
 
-                    <a href="/suktam_odoo.pdf" className="w-full " target="_blank" rel="noopener noreferrer">
-                      <button
-                        // onClick={() => setIsOpen(false)}
-                        style={{
-                          display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-                          background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.3)",
-                          color: "#16A34A", borderRadius: 10, padding: "12px",
-                          fontSize: "0.9rem", fontWeight: 700, cursor: "pointer",
-                          fontFamily: "'Sora', sans-serif",
-                          width: "100%",
-                        }}
-                      >
-                        <FaDownload size={14} /> Download Brochure
-                      </button>
-                    </a>
-                  </center>
+                <NavLink
+                  to="/about"
+                  onClick={() => {
+                    setIsOpen(false);
+                    scrollTop();
+                  }}
+                  style={({ isActive }) => ({
+                    display: "block",
+                    padding: "12px 0",
+                    textDecoration: "none",
+                    color: isActive ? C.orange : C.dark,
+                    fontSize: "0.95rem",
+                    fontWeight: isActive ? 700 : 500,
+                    borderBottom: "1px solid rgba(0,0,0,0.06)",
+                    fontFamily: "'DM Sans', sans-serif",
+                  })}
+                >
+                  About
+                </NavLink>
 
+                <div style={{ marginTop: 16 }}>
                   <a
                     href="mailto:contact@suktamtech.com"
                     style={{
-                      display: "block", textAlign: "center",
+                      display: "block",
+                      textAlign: "center",
                       background: `linear-gradient(135deg, ${C.orange}, ${C.orangeD})`,
-                      color: "#fff", borderRadius: 10, padding: "12px",
-                      fontSize: "0.9rem", fontWeight: 700, textDecoration: "none",
+                      color: "#fff",
+                      borderRadius: 10,
+                      padding: "12px",
+                      fontSize: "0.9rem",
+                      fontWeight: 700,
+                      textDecoration: "none",
                       fontFamily: "'Sora', sans-serif",
                       boxShadow: `0 4px 16px ${C.orange}35`,
                     }}
@@ -484,7 +589,6 @@ const Navbar = () => {
         </AnimatePresence>
       </header>
 
-      {/* Spacer so content doesn't sit under fixed nav */}
       <div style={{ height: scrolled ? 63 : 71, transition: "height 0.3s" }} />
     </>
   );
